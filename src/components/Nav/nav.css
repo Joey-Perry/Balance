@@ -1,0 +1,8 @@
+.logo {
+    height: 10vmin;
+    pointer-events: none;
+  }
+
+  .nav-bar {
+      display: flex;
+  }
