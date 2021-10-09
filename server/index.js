@@ -69,8 +69,45 @@ const accounts = [{
 
 app.get('/api/accounts', (req, res) => {
     res.status(200).send(accounts)
-})
+});
 
+// BUDGET ENDPOINTS
+
+const budgets = [{
+  "id": 1,
+  "expected": 279,
+  "actual": 31,
+  "name": "Rent",
+  "date": "10/10/2020"
+}, {
+  "id": 2,
+  "expected": 157,
+  "actual": 86,
+  "name": "Car",
+  "date": "10/28/2020"
+}, {
+  "id": 3,
+  "expected": 122,
+  "actual": 14,
+  "name": "Electricity",
+  "date": "10/06/2020"
+}, {
+  "id": 4,
+  "expected": 135,
+  "actual": 99,
+  "name": "Insurance",
+  "date": "10/22/2020"
+}, {
+  "id": 5,
+  "expected": 264,
+  "actual": 35,
+  "name": "Groceries",
+  "date": "10/21/2020"
+}];
+
+app.get('/api/budgets', (req, res) => {
+  res.status(200).send(budgets);
+});
 
 // ACTIVATE SERVER
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));

@@ -1,0 +1,20 @@
+.budget-overview {
+    display: flex;
+    border: 2px solid black;
+    justify-content: space-around;
+    padding: 10px 0px;
+}
+
+.budget-overview h6 {
+    color: gray;
+}
+
+table {
+    width: 100%;
+    padding: 20px 0px;
+    border: 2px solid black;
+}
+
+td {
+    text-align: center;
+}
