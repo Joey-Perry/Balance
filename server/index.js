@@ -109,5 +109,82 @@ app.get('/api/budgets', (req, res) => {
   res.status(200).send(budgets);
 });
 
+// TRANSCACTIONS ENDPOINTS
+
+const transactions = [{
+  "id": 1,
+  "vendor": "Mymm",
+  "amount": 17,
+  "category": "Misc",
+  "description": "potenti nullam porttitor lacus at",
+  "date": "10/30/2020"
+}, {
+  "id": 2,
+  "vendor": "Skyble",
+  "amount": 14,
+  "category": "Misc",
+  "description": "tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum",
+  "date": "10/29/2020"
+}, {
+  "id": 3,
+  "vendor": "Zazio",
+  "amount": 46,
+  "category": "Misc",
+  "description": "in lectus pellentesque at nulla suspendisse potenti cras",
+  "date": "10/21/2020"
+}, {
+  "id": 4,
+  "vendor": "Jabberstorm",
+  "amount": 82,
+  "category": "Groceries",
+  "description": "blandit ultrices enim lorem ipsum dolor sit amet consectetuer",
+  "date": "10/25/2020"
+}, {
+  "id": 5,
+  "vendor": "Gabtune",
+  "amount": 67,
+  "category": "Groceries",
+  "description": "tincidunt nulla mollis molestie lorem quisque ut",
+  "date": "10/29/2020"
+}, {
+  "id": 6,
+  "vendor": "Shufflester",
+  "amount": 36,
+  "category": "Misc",
+  "description": "pede venenatis non sodales sed tincidunt eu felis fusce posuere",
+  "date": "10/14/2020"
+}, {
+  "id": 7,
+  "vendor": "Yozio",
+  "amount": 87,
+  "category": "Gas",
+  "description": "lectus in quam fringilla rhoncus mauris",
+  "date": "10/19/2020"
+}, {
+  "id": 8,
+  "vendor": "Buzzster",
+  "amount": 15,
+  "category": "Gas",
+  "description": "mattis pulvinar nulla pede ullamcorper",
+  "date": "10/18/2020"
+}, {
+  "id": 9,
+  "vendor": "Dabjam",
+  "amount": 7,
+  "category": "Misc",
+  "description": "faucibus orci luctus et ultrices",
+  "date": "10/24/2020"
+}, {
+  "id": 10,
+  "vendor": "Edgeify",
+  "amount": 40,
+  "category": "Gas",
+  "description": "rhoncus dui vel sem sed",
+  "date": "10/30/2020"
+}];
+
+app.get('/api/transactions', (req, res) => {
+  res.status(200).send(transactions)
+})
 // ACTIVATE SERVER
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
