@@ -1,0 +1,22 @@
+.dash {
+    text-align: center;
+}
+
+.overview {
+    /* border: 2px solid black; */
+    padding: 15px 0px;
+}
+
+.account {
+    padding: 25px 10px;
+}
+
+.account h6 {
+    color: gray;
+}
+
+.account-totals {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}

@@ -22,6 +22,7 @@ CREATE TABLE accounts (
     type VARCHAR(50),
     name VARCHAR(50),
     notes VARCHAR(240),
+    amount INT,
     user_id INT references users(id)
 )
 
