@@ -1,8 +1,38 @@
-import React from 'react';
+import axios from 'axios';
+import React, {useState, useEffect} from 'react';
+import './transactions.css';
 
 const Transactions = () => {
+
+    const [transactions, setTransactions] = useState([]);
+
+    useEffect(() => {
+        axios.get('/api/transactions')
+            .then(res => setTransactions(res.data))
+            .catch(err => console.log(err))
+    }, [])
+
     return (
+        <>
         <h1>Transactions</h1>
+
+        {transactions.map(transaction => {
+            return (
+                <section className='transactions'>
+
+                <section className='vendor-and-date'>
+                    <h4>{transaction.vendor}</h4>
+                    <h6>{transaction.date}</h6>
+                </section>
+
+                <h6 className='category'>{transaction.category}</h6>
+                
+                <h3 className='amount'>${transaction.amount}</h3>
+            </section>
+            )
+        })}
+        
+        </>
     )
 }
 
