@@ -6,21 +6,48 @@ const Budget = () => {
 
     const [budgets, setBudgets] = useState([]);
     const [totalPlanned, setTotalPlanned] = useState(0);
+    const [showExpected, setShowExpected] = useState(true);
+    const [showActual, setShowActual] = useState(false);
     
     useEffect(() => {
         axios.get('/api/budgets')
-            .then(res => setBudgets(res.data))
+            .then(res => {
+                setBudgets(res.data);
+                setTotalPlanned(res.data.reduce((acc, curr) => {
+                    return acc + curr.expected
+                },0));
+            })
             .catch(err => console.log(err))
-    })
+    }, [])
 
-    useEffect(() => {
-        const total = budgets.reduce((acc, curr) => {
-            return acc + curr.expected
-        }, 0)
-        setTotalPlanned(total);
-    })
+    // console.log({budgets});
 
-    console.log({budgets});
+    const displayExpected = (e) => {
+        setShowExpected(true);
+        setShowActual(false);
+        e.target.parentNode.childNodes.forEach(child => {
+            child.classList.remove('active');
+        });
+        e.target.classList.toggle('active');
+    }
+
+    const displayActual = (e) => {
+        setShowExpected(false);
+        setShowActual(true);
+        e.target.parentNode.childNodes.forEach(child => {
+            child.classList.remove('active');
+        });
+        e.target.classList.toggle('active');
+    }
+
+    const displayRemainder = (e) => {
+        setShowExpected(false);
+        setShowActual(false);
+        e.target.parentNode.childNodes.forEach(child => {
+            child.classList.remove('active');
+        });
+        e.target.classList.toggle('active');
+    }
 
     return (
         <>
@@ -36,7 +63,7 @@ const Budget = () => {
                 <section className='section'>
                     {/* calculated based on expected amounts in each category */}
                     <h6>Total Planned</h6>
-                    <h3>{totalPlanned}</h3>
+                    <h3>$2700</h3>
                 </section>
 
                 <section className='section'>
@@ -45,36 +72,32 @@ const Budget = () => {
                 </section>
             </section>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>
-                            {/* user input on this screen */}
-                            <h4>Category</h4>
-                        </th>
-                    
-                        <th>
-                            {/* user input on this screen */}
-                            <h4>Expected</h4>
-                        </th>
-                        <th>
-                            {/* calculated based on transactions */}
-                            <h4>Actual</h4>
-                        </th>
-                        <th>
-                            {/* calculated based on expected - actual */}
-                            <h4>Remainder</h4>
-                        </th>
-                    </tr>
-                    {budgets.map(row => {
-                        return (<tr>
-                            <td>{`${row.name}`}</td>
-                            <td>{`${row.expected}`}</td>
-                            <td>{`${row.actual}`}</td> 
-                            </tr>)
-                        })}
-                </thead>
-            </table>
+            <section className='budget-headers'>
+                <h4 onClick={displayExpected} className='active'>Expected</h4>
+                <h4 onClick={displayActual}>Actual</h4>
+                <h4 onClick={displayRemainder}>Remaining</h4>
+            </section>
+
+            <section>
+                {budgets.map(category => {
+                    let displayAmount = 0;
+                    if (showExpected){
+                        displayAmount = category.expected
+                    } else if (showActual){
+                        displayAmount = category.actual
+                    } else {
+                        displayAmount = category.expected - category.actual
+                    }
+
+                    return (
+                        <section className='categories'>
+                            <h3 className='category-name'>{category.name}</h3>
+                            <h3 className='category-amount'>{displayAmount}</h3>
+                        </section>
+                    )
+                })}
+            </section>
+
 
         </>
     )
