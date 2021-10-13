@@ -16,12 +16,13 @@ const Transactions = () => {
         <>
         <h1>Transactions</h1>
 
+        <section className='transactions-container'>
         {transactions.map(transaction => {
             return (
                 <section className='transactions'>
 
                 <section className='vendor-and-date'>
-                    <h4>{transaction.vendor}</h4>
+                    <h4 className='vendor'>{transaction.vendor}</h4>
                     <h6>{transaction.date}</h6>
                 </section>
 
@@ -31,7 +32,7 @@ const Transactions = () => {
             </section>
             )
         })}
-        
+        </section>
         </>
     )
 }
