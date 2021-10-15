@@ -4,7 +4,9 @@ const express = require('express');
 const massive = require('massive');
 const app = express();
 const path = require('path');
-const { CONNECTION_STRING } = process.env;
+const session = require('express-session');
+const bcrypt = require('bcryptjs');
+const { CONNECTION_STRING, SESSION_SECRET } = process.env;
 const PORT = process.env.port || 5050;
 
 // MIDDLEWARE
@@ -19,6 +21,15 @@ massive({
     app.set('db', db);
     console.log('DB connection established!');
 }).catch(err => console.log(`DB connection error: ${err}`));
+
+// SESSION
+app.use(session({
+  resave: true,
+  saveUninitialized: true,
+  secret: SESSION_SECRET,
+  cookie: { maxAge: 1000 * 60 * 60 * 24 } // 1 day
+}))
+
 
 // ENDPOINTS
 
