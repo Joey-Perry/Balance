@@ -14,15 +14,17 @@ const getUser = async (req, res) => {
 
 const login = async (req, res) => {
     const { username, password } = req.body;
-
+    
+    console.log(password);
+    
     try {
         const foundUser = await db(req).get_user(username);
         const user = foundUser[0];
-        // console.log(user);
+        console.log(user);
         if (!user){
             return res.status(401).send('User nout found. Please register a new user before logging in.');
         } else {
-            const isAuthenticated = bcrypt.compareSync(password, '1234');
+            const isAuthenticated = bcrypt.compareSync(password, user.password);
             if (!isAuthenticated){
                 return res.status(403).send('Incorrect password!')
             } else {
