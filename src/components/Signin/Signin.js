@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 import './signin.css';
 
 const Signin = () => {
@@ -9,8 +10,10 @@ const Signin = () => {
 
     const login = () => {
         console.log({username}, {password});
+        axios.post('/auth/login', {username, password})
+            .then(res => console.log(res.data))
+            .catch(err => console.log(err));
     }
-
 
     return (
         <>

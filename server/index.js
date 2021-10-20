@@ -5,9 +5,10 @@ const massive = require('massive');
 const app = express();
 const path = require('path');
 const session = require('express-session');
-const bcrypt = require('bcryptjs');
 const { CONNECTION_STRING, SESSION_SECRET } = process.env;
 const PORT = process.env.port || 5050;
+
+const { getUser, login } = require('./controllers/authController');
 
 // MIDDLEWARE
 app.use(express.json());
@@ -197,5 +198,10 @@ const transactions = [{
 app.get('/api/transactions', (req, res) => {
   res.status(200).send(transactions)
 })
+
+// LOGIN ENDPOINTS
+
+app.post('/auth/login', login);
+
 // ACTIVATE SERVER
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
