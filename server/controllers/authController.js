@@ -24,8 +24,8 @@ const login = async (req, res) => {
         if (!user){
             return res.status(401).send('User nout found. Please register a new user before logging in.');
         } else {
-            const isAuthenticated = bcrypt.compareSync(password, user.password);
-            if (!isAuthenticated){
+            // const isAuthenticated = bcrypt.compareSync(password, user.password);
+            if (password !== user.password){
                 return res.status(403).send('Incorrect password!')
             } else {
                 req.session.user = {
