@@ -17,8 +17,8 @@ const Signup = () => {
             firstName, lastName, username, email, password
         }
         
-        axios.post('/auth/register', { userInfo })
-            .then(res => console.log(res))
+        axios.post('/auth/register', userInfo )
+            .then(res => console.log(res.data))
             .catch(err => console.log(err))
     }
     
