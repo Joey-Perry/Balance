@@ -7,6 +7,7 @@ const path = require('path');
 const session = require('express-session');
 const { CONNECTION_STRING, SESSION_SECRET } = process.env;
 const PORT = process.env.port || 5050;
+const { accounts, budgets, transactions } = require('./mockData');
 
 const { getUser, login, register } = require('./controllers/authController');
 

@@ -145,3 +145,7 @@ const accounts = [{
     "description": "rhoncus dui vel sem sed",
     "date": "10/30/2020"
   }];
+
+modules.export = {
+  accounts, budgets, transactions
+  }
