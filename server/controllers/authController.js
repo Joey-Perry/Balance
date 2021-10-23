@@ -15,16 +15,16 @@ const getUser = async (req, res) => {
 const login = async (req, res) => {
     const { username, password } = req.body;
     
-    console.log(password);
+    // console.log(password);
     
     try {
         const foundUser = await db(req).get_user(username);
         const user = foundUser[0];
-        console.log(user);
+        // console.log(user);
         if (!user){
             return res.status(401).send('User nout found. Please register a new user before logging in.');
         } else {
-            // const isAuthenticated = bcrypt.compareSync(password, user.password);
+            const isAuthenticated = bcrypt.compareSync(password, user.password);
             if (password !== user.password){
                 return res.status(403).send('Incorrect password!')
             } else {
@@ -44,6 +44,34 @@ const login = async (req, res) => {
     }
 }
 
+const register = async (req, res) => {
+    const { firstName, lastName, username, email, password } = req.body;
+    console.log(req.body);
+
+    try {
+        const result = await db(req).get_user(username);
+        const existingUser = result[0];
+        if (existingUser){
+            console.log('Username taken');
+            return res.status(409).json('Username taken');
+        } else {
+            const hash = bcrypt.hashSync(password);
+            const registeredUser = await db(req).register_user([firstName, lastName, username, email, hash]);
+            const user = registeredUser[0];
+            req.session.user = {
+                firstName: user.firstName,
+                lastName: user.lastName,
+                username: user.username,
+                email: user.email
+            }
+            return res.status(201).send(req.session.user);
+        }
+    } catch (err) {
+        console.log(`Error registering user: ${err}`);
+    }
+}
+
+
 module.exports = {
-    getUser, login
+    getUser, login, register
 }
