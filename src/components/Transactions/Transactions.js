@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
+import Button from '../Button/Button';
 import './transactions.css';
 
-const Transactions = () => {
+const Transactions = (props) => {
 
     const [transactions, setTransactions] = useState([]);
 
@@ -12,9 +13,15 @@ const Transactions = () => {
             .catch(err => console.log(err))
     }, [])
 
+    const addTransaction = () => {
+        // display form
+    }
+
     return (
         <>
         <h1>Transactions</h1>
+
+        <Button location={props.location.pathname} />
 
         <section className='transactions-container'>
         {transactions.map(transaction => {

@@ -13,9 +13,9 @@ const Nav = () => {
     }
 
     return (
-        <section>
+       
 
-        <button onClick={openForm}>ADD NEW</button>
+        
         <nav className='nav-bar' onClick={toggleMenu}>
             {/* <img className= 'logo' src={logo} /> */}
             {!menuStatus && 
@@ -26,7 +26,7 @@ const Nav = () => {
                 </div> }
             { menuStatus && <Menu />}
         </nav>
-        </section>
+        
     )
 }
 
