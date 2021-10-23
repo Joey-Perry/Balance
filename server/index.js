@@ -49,7 +49,7 @@ app.get('/api/transactions', (req, res) => {
 
 // LOGIN ENDPOINTS
 app.post('/auth/login', login);
-app.post('auth/register', register);
+app.post('/auth/register', register);
 
 // ACTIVATE SERVER
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));

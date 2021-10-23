@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './signup.css';
@@ -16,9 +17,11 @@ const Signup = () => {
             firstName, lastName, username, email, password
         }
         
-        
-        console.log(userInfo)
+        axios.post('/auth/register', { userInfo })
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
     }
+    
     return (
         <>
         <h1>Authentication 2</h1>
