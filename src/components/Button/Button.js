@@ -12,13 +12,16 @@ const Button = (location) => {
 
     let fields = [];
 
-    if (location === '/transactions'){
+    if (location.location === '/transactions'){
         fields = ['vendor', 'amount', 'category', 'description', 'date'];
-    } else if (location === '/budget'){
+    } else if (location.location === '/budget'){
         fields = ['expected', 'name', 'date'];
-    } else if (location === '/accountDetails'){
+    } else if (location.location === '/accountDetails'){
         fields = ['type', 'name', 'notes', 'amounts'];
     }
+
+    
+    // console.log(fields);
 
     return (
         <>
