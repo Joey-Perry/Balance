@@ -8,12 +8,25 @@ const Nav = () => {
     const [menuStatus, setMenuStatus] = useState(false);
     const toggleMenu = () => setMenuStatus(!menuStatus);
 
+    const openForm = () => {
+        console.log();
+    }
+
     return (
+        <section>
+
+        <button onClick={openForm}>ADD NEW</button>
         <nav className='nav-bar' onClick={toggleMenu}>
-            <img className= 'logo' src={logo} />
-            {!menuStatus && <h1>NAV</h1> }
+            {/* <img className= 'logo' src={logo} /> */}
+            {!menuStatus && 
+                <div className='hamburger-menu'>
+                    <div className='nav-line'></div>
+                    <div className='nav-line'></div>
+                    <div className='nav-line'></div>
+                </div> }
             { menuStatus && <Menu />}
         </nav>
+        </section>
     )
 }
 
