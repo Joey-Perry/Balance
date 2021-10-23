@@ -4,7 +4,7 @@ import routes from './routes'
 import authRoutes from './authRoutes'
 
 const App = () => {
-  
+
   const loggedIn = true;
   // const loggedIn = false;
 

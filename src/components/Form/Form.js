@@ -1,11 +1,22 @@
 import React from 'react';
+import useForm from '../../utils/useForm';
 import './form.css';
 
 const Form = (props) => {
-    console.log(this.props)
+    const [values, handleChange] = useForm();
 
     return (
-        <h1>FORM</h1>
+        <form
+            onSubmit={}
+            className='form'>
+                <label>Name:</label>
+                <input
+                    value={values.name || ''}
+                    onChange={(e) => handleChange}
+                    type='text'
+                    placeholder='First Name'
+                    className='name' />
+            </form>
     )
 }
 
