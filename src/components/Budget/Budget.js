@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import Button from '../Button/Button';
 import './budget.css';
 
-const Budget = () => {
+const Budget = (props) => {
 
     const [budgets, setBudgets] = useState([]);
     const [totalPlanned, setTotalPlanned] = useState(0);
@@ -52,6 +53,8 @@ const Budget = () => {
     return (
         <>
             <h1>October Budget</h1>
+
+            <Button location={props.location.pathname} />
 
             <section className='budget-overview'>
                 <section className='section'>

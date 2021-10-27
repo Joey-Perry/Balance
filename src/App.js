@@ -4,8 +4,9 @@ import routes from './routes'
 import authRoutes from './authRoutes'
 
 const App = () => {
-  
-  const loggedIn = false;
+
+  const loggedIn = true;
+  // const loggedIn = false;
 
   return (
     <div className='App'>

@@ -146,6 +146,6 @@ const accounts = [{
     "date": "10/30/2020"
   }];
 
-modules.export = {
+module.exports = {
   accounts, budgets, transactions
   }

@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import './dash.css';
 
-const Dash = () => {
+const Dash = (props) => {
 
     const [checking, setChecking] = useState(0);
     const [savings, setSavings] = useState(0);
