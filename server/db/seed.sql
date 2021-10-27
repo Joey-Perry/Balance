@@ -47,3 +47,12 @@ CREATE TABLE categories (
 -- 	('walmart', 120, 'misc', 'water bottles', '09-10-2021', 1);
 
 -- SELECT * FROM transactions;
+
+-- INSERT INTO accounts
+-- (type, name, notes, amount, user_id)
+-- VALUES
+-- ('debt', 'Regions', 'car loan', '17000', 1),
+-- ('savings', 'Ally', 'emergency fund', '12000', 1),
+-- ('checking', 'Wells Fargo', 'checking', '3000', 1),
+-- ('savings', 'Amplify', 'big ticket', '500', 2)
+-- SELECT * FROM accounts;
