@@ -9,20 +9,20 @@ const Button = (location) => {
     const toggleForm = () => {
         setFormStatus(!formStatus);
     }
-
+    const page = location.location;
     let fields = [];
 
-    if (location.location === '/transactions'){
+    if (page === '/transactions'){
         fields = ['vendor', 'amount', 'category', 'description', 'date'];
-    } else if (location.location === '/budgets'){
-        fields = ['expected', 'name', 'date'];
-    } else if (location.location === '/accountDetails'){
+    } else if (page === '/budgets'){
+        fields = ['Name', 'Expected', 'Date'];
+    } else if (page === '/accountDetails'){
         fields = ['type', 'name', 'notes', 'amounts'];
     }
 
     
-    console.log(location);
-    console.log(fields);
+    // console.log(page);
+    // console.log(fields);
 
     return (
         <>
@@ -31,7 +31,7 @@ const Button = (location) => {
         {formStatus && 
         
             <Modal>
-                <Form toggleForm={toggleForm} fields={fields}/>
+                <Form toggleForm={toggleForm} fields={fields} page={page}/>
             </Modal>}
 
 

@@ -9,7 +9,8 @@ const { CONNECTION_STRING, SESSION_SECRET } = process.env;
 const PORT = process.env.port || 5050;
 const { accounts, budgets, transactions } = require('./mockData');
 
-const { getUser, login, register } = require('./controllers/authController');
+const { login, register } = require('./controllers/authController');
+const { getUserAccounts, addNewAccount } = require('./controllers/accountController');
 
 // MIDDLEWARE
 app.use(express.json());
@@ -34,19 +35,29 @@ app.use(session({
 
 // ENDPOINTS
 // ACCOUNT ENDPOINTS
-app.get('/api/accounts', (req, res) => {
-    res.status(200).send(accounts)
-});
+app.get('/api/accounts', getUserAccounts);
+
+app.post('/api/accounts', addNewAccount);
 
 // BUDGET ENDPOINTS
 app.get('/api/budgets', (req, res) => {
   res.status(200).send(budgets);
 });
 
+app.post('/api/budgets', (req, res) => {
+  console.log(req.body);
+  res.sendStatus(200);
+});
+
 // TRANSACTIONS ENDPOINTS
 app.get('/api/transactions', (req, res) => {
   res.status(200).send(transactions)
-})
+});
+
+app.post('/api/transactions', (req, res) => {
+  console.log(req.body);
+  res.sendStatus(200);
+});
 
 // LOGIN ENDPOINTS
 app.post('/auth/login', login);

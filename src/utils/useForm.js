@@ -5,7 +5,7 @@ const useForm = () => {
     const [state, setState] = useState({});
 
     const handleChange = (e) => {
-        // e.persist()
+        // e.persist();
         setState(state => (
             {
                 ...state, 
@@ -13,7 +13,7 @@ const useForm = () => {
             }
             )
         );
-        console.log(state);
+        // console.log(state);
     }
     
     return [state, handleChange];

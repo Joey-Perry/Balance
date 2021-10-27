@@ -1,25 +1,32 @@
+import axios from 'axios';
 import React from 'react';
 import useForm from '../../utils/useForm';
 import './form.css';
 
-const Form = ({toggleForm, fields}) => {
+const Form = ({toggleForm, fields, page}) => {
     const [values, handleChange] = useForm();
 
     const info = (e) => {
         e.preventDefault();
         console.log(values);
+        // console.log(page);
+        
+
+        axios.post(`/api/${page}`, values)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
     }
 
     const formFields = fields.map(field => {
-        console.log(field);
+        // console.log(field);
 
         return (
             <div>
             <label>{field}</label>
-            <input value={values.field || ''} 
-                    name='name'
+            <input value={values.field}
+                    name={field}
                     onChange={handleChange}
-                    placeholder='First Name'
+                    // placeholder='First Name'
                     />
             </div>
         )
