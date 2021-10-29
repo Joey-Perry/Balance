@@ -2,18 +2,24 @@ import './App.css';
 import Nav from './components/Nav/Nav'
 import routes from './routes'
 import authRoutes from './authRoutes'
+import { connect } from 'react-redux';
+import { useState, useEffect } from 'react';
 
-const App = () => {
+const App = (props) => {
 
-  const loggedIn = true;
-  // const loggedIn = false;
+  const [loggedInStatus, setLoggedInStatus ] = useState(false);
+
+  useEffect(() => {
+    console.log(props.state);
+    setLoggedInStatus(props.state.loggedIn);
+  }, [props.state])
 
   return (
     <div className='App'>
 
-      {!loggedIn && authRoutes }
+      {!loggedInStatus && authRoutes }
 
-      {loggedIn && 
+      {loggedInStatus && 
         <>
         <main>{routes}</main>
         <Nav />
@@ -23,4 +29,12 @@ const App = () => {
   )
 }
 
-export default App;
+const mapStateToProps = (reduxState) => {
+  // console.log(reduxState);
+
+  return {
+    state: reduxState
+  }
+}
+
+export default connect(mapStateToProps)(App);

@@ -1,0 +1,55 @@
+import axios from 'axios';
+
+const initialState = {
+    username: '',
+    email: '',
+    firstName: '',
+    lastName: '',
+    loggedIn: false
+}
+
+const LOGGED_IN = 'LOGGED_IN';
+
+export const loginUser = (loginInfo) => {
+    const user = axios.post('/auth/login', loginInfo).then(res => {
+        console.log(res.data)
+        return res.data });
+
+    console.log(user);
+    return {
+        type: LOGGED_IN,
+        payload: user
+    }
+}
+
+export default function reducer(state=initialState, action){
+    switch(action.type){
+        case `${LOGGED_IN}_PENDING`: {
+            return {
+                ...state,
+            }
+        }
+
+        case `${LOGGED_IN}_FULFILLED`: {
+            console.log(action.payload);
+            return {
+                ...state,
+                loggedIn: true,
+                username: action.payload.username,
+                email: action.payload.email,
+                firstName: action.payload.firstName,
+                lastName: action.payload.lastName
+            }
+        }
+
+        case `${LOGGED_IN}_REJECTED`: {
+            return {
+                ...state,
+                errorMessages: action.payload
+            }
+        }
+        default:{
+            return state;
+        }
+    }
+}
