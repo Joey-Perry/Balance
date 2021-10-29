@@ -2,10 +2,12 @@ const db = (req) => req.app.get('db');
 
 const getUserAccounts = async (req, res) => {
 
+    console.log(req.session.user);
+
     try {
-        const user = await db(req).get_user(req.body.username);
+        const user = await db(req).get_user(req.session.user.username);
         const accounts = await db(req).get_user_accounts(user[0].id);
-        // console.log(accounts);
+        console.log(accounts);
         res.status(200).send(accounts);
     } catch (err){
         console.log(`Error retrieving user accounts: ${err}`);
