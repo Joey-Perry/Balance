@@ -9,6 +9,8 @@ const App = (props) => {
 
   const [loggedInStatus, setLoggedInStatus ] = useState(false);
 
+  // console.log(loggedInStatus);
+
   useEffect(() => {
     console.log(props.state);
     setLoggedInStatus(props.state.loggedIn);

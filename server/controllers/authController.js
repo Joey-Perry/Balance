@@ -72,7 +72,11 @@ const register = async (req, res) => {
     }
 }
 
+const logout = async (req, res) => {
+    req.session.destroy();
+    res.status(200).send('User logged out');
+}
 
 module.exports = {
-    getUser, login, register
+    getUser, login, register, logout
 }

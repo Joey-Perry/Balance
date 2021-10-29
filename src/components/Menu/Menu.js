@@ -1,7 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { logoutUser } from '../../redux/reducer';
 
-const Menu = () => {
+const Menu = (props) => {
+    console.log(props);
+
+    const logout = () => {
+        props.logoutUser();
+    }
+
     return (
         <div className='menu'>
             <ul>
@@ -9,7 +17,7 @@ const Menu = () => {
             <li><h2><Link to='/'>Dash</Link></h2></li>
             <li><h2><Link to='/budgets'>Budget</Link></h2></li>
             <li><h2><Link to='/transactions'>Transactions</Link></h2></li>
-            <li><h2>Log-out</h2></li>
+            <li><h2 onClick={logout}>Log-out</h2></li>
 
             </ul>
 
@@ -17,4 +25,10 @@ const Menu = () => {
     )
 }
 
-export default Menu;
+const mapDispatchToProps = (reduxState) => {
+    return {
+        state: reduxState
+    }
+}
+
+export default connect(mapDispatchToProps, {logoutUser})(Menu);
