@@ -12,10 +12,6 @@ const Signin = (props) => {
 
     
     const login = () => {
-        // console.log({username}, {password});
-        // axios.post('/auth/login', {username, password})
-        //     .then(res => console.log(res.data))
-        //     .catch(err => console.log(err));
         const loginInfo = { username, password }
         props.loginUser(loginInfo);
     }

@@ -9,7 +9,7 @@ const { CONNECTION_STRING, SESSION_SECRET } = process.env;
 const PORT = process.env.port || 5050;
 const { accounts, budgets, transactions } = require('./mockData');
 
-const { login, register } = require('./controllers/authController');
+const { login, register, logout } = require('./controllers/authController');
 const { getUserAccounts, addNewAccount } = require('./controllers/accountController');
 
 // MIDDLEWARE
@@ -62,6 +62,9 @@ app.post('/api/transactions', (req, res) => {
 // LOGIN ENDPOINTS
 app.post('/auth/login', login);
 app.post('/auth/register', register);
+
+// LOGOUT ENDPOINTS
+app.get('/auth/logout', logout);
 
 // ACTIVATE SERVER
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
