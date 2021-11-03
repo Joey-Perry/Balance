@@ -3,17 +3,21 @@ import React from 'react';
 import useForm from '../../utils/useForm';
 import './form.css';
 
-const Form = ({toggleForm, fields, page}) => {
+const Form = ({toggleForm, fields, page, push}) => {
     const [values, handleChange] = useForm();
 
     const info = (e) => {
         e.preventDefault();
-        console.log(values);
+        // console.log(values);
         // console.log(page);
         
 
         axios.post(`/api/${page}`, values)
-            .then(res => console.log(res))
+            .then(res => {
+                console.log(res.data[0]);
+                // console.log(props.history);
+                push(`${page}`);
+            })
             .catch(err => console.log(err));
     }
 

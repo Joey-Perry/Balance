@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Modal from '../Modal/Modal'
 import Form from '../Form/Form'
 
-const Button = (location) => {
+const Button = (location, push) => {
 
     const [formStatus, setFormStatus] = useState(false);
 
@@ -31,7 +31,7 @@ const Button = (location) => {
         {formStatus && 
         
             <Modal>
-                <Form toggleForm={toggleForm} fields={fields} page={page}/>
+                <Form toggleForm={toggleForm} fields={fields} page={page} push={push}/>
             </Modal>}
 
 

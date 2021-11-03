@@ -50,11 +50,16 @@ const Budget = (props) => {
         e.target.classList.toggle('active');
     }
 
+    const navFunction = (location) => {
+        props.history.push(location);
+    }
+    
+
     return (
         <>
             <h1>October Budget</h1>
 
-            <Button location={props.location.pathname} />
+            <Button location={props.location.pathname} push={navFunction}/>
 
             <section className='budget-overview'>
                 <section className='section'>
