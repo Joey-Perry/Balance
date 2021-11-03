@@ -15,7 +15,7 @@ const Button = (location) => {
     if (page === '/transactions'){
         fields = ['vendor', 'amount', 'category', 'description', 'date'];
     } else if (page === '/budgets'){
-        fields = ['Name', 'Expected', 'Date'];
+        fields = ['name', 'expected', 'date'];
     } else if (page === '/accountDetails'){
         fields = ['type', 'name', 'notes', 'amounts'];
     }

@@ -3,7 +3,7 @@ const db = (req) => req.app.get('db');
 const getUserBudgets = async (req, res) => {
 
     try {
-        const user = await db(req).get_user(req.body.username);
+        const user = await db(req).get_user(req.session.user.username);
         const budgets = await db(req).get_user_budgets(user[0].id);
         // console.log(accounts);
         res.status(200).send(budgets);
@@ -14,7 +14,9 @@ const getUserBudgets = async (req, res) => {
 
 const addNewBudgetCategory = async (req, res) => {
 
-    const { username, expected, actual, name, date } = req.body;
+    const { expected, actual, name, date } = req.body;
+    const { username } = req.session.user;
+    console.log(req.body);
 
     try {
         const user = await db(req).get_user(username);
