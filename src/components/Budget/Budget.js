@@ -52,6 +52,7 @@ const Budget = (props) => {
 
     const navFunction = (location) => {
         props.history.push(location);
+        
     }
     
 
@@ -59,7 +60,7 @@ const Budget = (props) => {
         <>
             <h1>October Budget</h1>
 
-            <Button location={props.location.pathname} push={navFunction}/>
+            <Button location={props.location.pathname} navFunction={navFunction}/>
 
             <section className='budget-overview'>
                 <section className='section'>

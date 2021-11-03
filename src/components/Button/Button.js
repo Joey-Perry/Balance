@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Modal from '../Modal/Modal'
 import Form from '../Form/Form'
 
-const Button = (location, push) => {
+const Button = (location, navFunction) => {
 
     const [formStatus, setFormStatus] = useState(false);
 
@@ -20,7 +20,8 @@ const Button = (location, push) => {
         fields = ['type', 'name', 'notes', 'amounts'];
     }
 
-    
+    navFunction('/transactions');
+
     // console.log(page);
     // console.log(fields);
 
@@ -31,7 +32,7 @@ const Button = (location, push) => {
         {formStatus && 
         
             <Modal>
-                <Form toggleForm={toggleForm} fields={fields} page={page} push={push}/>
+                <Form toggleForm={toggleForm} fields={fields} page={page} />
             </Modal>}
 
 
