@@ -8,8 +8,6 @@ const Form = ({toggleForm, fields, page }) => {
 
     const info = (e) => {
         e.preventDefault();
-        // console.log(values);
-        // console.log(page);
         
         axios.post(`/api/${page}`, values)
             .then(res => {
@@ -20,7 +18,6 @@ const Form = ({toggleForm, fields, page }) => {
     }
 
     const formFields = fields.map((field, i) => {
-        // console.log(field);
         return (
             <>
             <label>{field}</label>
@@ -33,21 +30,19 @@ const Form = ({toggleForm, fields, page }) => {
         )
     })
 
-    // console.log(formFields);
 
     return (
         <>
-        <form
-            className='form'>
+        <form className='form'>
                 {formFields.map((field, i) => {
                     return (
                         <div key={i}>{field}</div>
                     )
                 })}
             <button onClick={info}>SUBMIT</button>
-            </form>
+        </form>
         
-        <button onClick={toggleForm}>Close Form</button>
+        <button onClick={toggleForm}>CLOSE</button>
 
         </>
     )

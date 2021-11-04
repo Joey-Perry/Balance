@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import Button from '../Button/Button';
 import './budget.css';
+import Modal from '../Modal/Modal';
+import EditForm from '../EditForm/EditForm';
 
 const Budget = (props) => {
 
@@ -9,6 +11,8 @@ const Budget = (props) => {
     const [totalPlanned, setTotalPlanned] = useState(0);
     const [showExpected, setShowExpected] = useState(true);
     const [showActual, setShowActual] = useState(false);
+    const [editFormStatus, setEditFormStatus ] = useState(false);
+    const [activeCategory, setActiveCategory] = useState({});
     
     useEffect(() => {
         axios.get('/api/budgets')
@@ -48,6 +52,17 @@ const Budget = (props) => {
             child.classList.remove('active');
         });
         e.target.classList.toggle('active');
+    }
+
+    const toggleEditForm = (e) => {
+        console.log(e.target);
+        // console.log(e.target.innerHTML);
+        console.log(e.target.innerText);
+        // console.log(e.target.innerContent);
+        // console.log(budgets);
+        const targetCategory = budgets.filter(category => category.name === e.target.innerText);
+        setEditFormStatus(!editFormStatus);
+        setActiveCategory(targetCategory)
     }
 
     return (
@@ -93,14 +108,21 @@ const Budget = (props) => {
                     }
 
                     return (
-                        <section className='categories' key={category.id}>
+                        <section className='categories' key={category.id} onClick={toggleEditForm}>
                             <h3 className='category-name'>{category.name}</h3>
                             <h3 className='category-amount'>{displayAmount}</h3>
+
+
                         </section>
                     )
                 })}
             </section>
 
+
+            {editFormStatus && 
+                <Modal>
+                    <EditForm toggleForm={toggleEditForm} category={activeCategory} />
+                </Modal>}
 
         </>
     )

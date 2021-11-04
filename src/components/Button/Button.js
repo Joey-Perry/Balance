@@ -2,13 +2,18 @@ import React, { useState } from 'react';
 import Modal from '../Modal/Modal'
 import Form from '../Form/Form'
 
-const Button = ({location, push}) => {
+const Button = ({location}) => {
 
     const [formStatus, setFormStatus] = useState(false);
-    
+    const [editFormStatus, setEditFormStatus] = useState(false);
+
 
     const toggleForm = () => {
         setFormStatus(!formStatus);
+    }
+
+    const toggleEditForm = () => {
+        setEditFormStatus(!editFormStatus);
     }
 
     let fields = [];
@@ -21,12 +26,10 @@ const Button = ({location, push}) => {
         fields = ['type', 'name', 'notes', 'amounts'];
     }
 
-    // console.log(page);
-    // console.log(fields);
-
     return (
         <>
         <button onClick={toggleForm}> ADD NEW </button>
+        <button onClick={toggleForm}> EDIT MODE </button>
 
         {formStatus && 
         
@@ -34,7 +37,10 @@ const Button = ({location, push}) => {
                 <Form toggleForm={toggleForm} fields={fields} page={location} />
             </Modal>}
 
-
+        {editFormStatus && 
+            <Modal>
+                <Form toggleForm={toggleEditForm} />
+            </Modal>}
 
         </>
     )
