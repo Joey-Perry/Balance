@@ -12,7 +12,7 @@ const App = (props) => {
   // console.log(loggedInStatus);
 
   useEffect(() => {
-    console.log(props.state);
+    // console.log(props.state);
     setLoggedInStatus(props.state.loggedIn);
   }, [props.state])
 

@@ -13,10 +13,10 @@ const LOGGED_OUT = 'LOGGED_OUT';
 
 export const loginUser = (loginInfo) => {
     const user = axios.post('/auth/login', loginInfo).then(res => {
-        console.log(res.data)
+        // console.log(res.data)
         return res.data });
 
-    console.log(user);
+    // console.log(user);
     return {
         type: LOGGED_IN,
         payload: user
@@ -42,7 +42,7 @@ export default function reducer(state=initialState, action){
         }
 
         case `${LOGGED_IN}_FULFILLED`: {
-            console.log(action.payload);
+            // console.log(action.payload);
             return {
                 ...state,
                 loggedIn: true,
@@ -66,7 +66,7 @@ export default function reducer(state=initialState, action){
         }
 
         case `${LOGGED_OUT}_FULFILLED`: {
-            console.log(action.payload);
+            // console.log(action.payload);
             return {
                 ...state,
                 loggedIn: false

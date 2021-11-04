@@ -19,7 +19,7 @@ const Budget = (props) => {
                 },0));
             })
             .catch(err => console.log(err))
-    }, [])
+    }, [budgets])
 
     // console.log({budgets});
 
@@ -50,17 +50,11 @@ const Budget = (props) => {
         e.target.classList.toggle('active');
     }
 
-    const navFunction = (location) => {
-        props.history.push(location);
-        
-    }
-    
-
     return (
         <>
             <h1>October Budget</h1>
 
-            <Button location={props.location.pathname} navFunction={navFunction}/>
+            <Button location={props.location.pathname} />
 
             <section className='budget-overview'>
                 <section className='section'>
@@ -99,7 +93,7 @@ const Budget = (props) => {
                     }
 
                     return (
-                        <section className='categories'>
+                        <section className='categories' key={category.id}>
                             <h3 className='category-name'>{category.name}</h3>
                             <h3 className='category-amount'>{displayAmount}</h3>
                         </section>
