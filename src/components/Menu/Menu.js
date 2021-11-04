@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { logoutUser } from '../../redux/reducer';
+import { logoutUser } from '../../redux/authReducer';
 
 const Menu = (props) => {
-    console.log(props);
+    // console.log(props);
 
     const logout = () => {
         props.logoutUser();

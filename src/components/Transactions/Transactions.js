@@ -24,9 +24,9 @@ const Transactions = (props) => {
         <Button location={props.location.pathname} />
 
         <section className='transactions-container'>
-        {transactions.map(transaction => {
+        {transactions.map((transaction, i) => {
             return (
-                <section className='transactions'>
+                <section className='transactions' key={i}>
 
                 <section className='vendor-and-date'>
                     <h4 className='vendor'>{transaction.vendor}</h4>

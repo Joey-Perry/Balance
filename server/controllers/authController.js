@@ -20,7 +20,7 @@ const login = async (req, res) => {
     try {
         const foundUser = await db(req).get_user(username);
         const user = foundUser[0];
-        console.log(user);
+        // console.log(user);
         if (!user){
             return res.status(401).send('User nout found. Please register a new user before logging in.');
         } else {
@@ -35,7 +35,7 @@ const login = async (req, res) => {
                     firstName: user.first_name,
                     lastName: user.last_name
                 }
-                console.log(req.session.user);
+                // console.log(req.session.user);
                 return res.status(200).send(req.session.user);
             }
         }

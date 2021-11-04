@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './signin.css';
 import { connect } from 'react-redux';
-import { loginUser } from '../../redux/reducer';
+import { loginUser } from '../../redux/authReducer';
 
 const Signin = (props) => {
 

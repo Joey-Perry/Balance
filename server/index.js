@@ -11,6 +11,7 @@ const { accounts, budgets, transactions } = require('./mockData');
 
 const { login, register, logout } = require('./controllers/authController');
 const { getUserAccounts, addNewAccount } = require('./controllers/accountController');
+const { getUserBudgets, addNewBudgetCategory } = require('./controllers/budgetController');
 
 // MIDDLEWARE
 app.use(express.json());
@@ -36,18 +37,11 @@ app.use(session({
 // ENDPOINTS
 // ACCOUNT ENDPOINTS
 app.get('/api/accounts', getUserAccounts);
-
 app.post('/api/accounts', addNewAccount);
 
-// BUDGET ENDPOINTS
-app.get('/api/budgets', (req, res) => {
-  res.status(200).send(budgets);
-});
-
-app.post('/api/budgets', (req, res) => {
-  console.log(req.body);
-  res.sendStatus(200);
-});
+// BUDGET CATEGORY ENDPOINTS
+app.get('/api/budgets', getUserBudgets);
+app.post('/api/budgets', addNewBudgetCategory);
 
 // TRANSACTIONS ENDPOINTS
 app.get('/api/transactions', (req, res) => {
@@ -63,7 +57,7 @@ app.post('/api/transactions', (req, res) => {
 app.post('/auth/login', login);
 app.post('/auth/register', register);
 
-// LOGOUT ENDPOINTS
+// LOGOUT ENDPOINT
 app.get('/auth/logout', logout);
 
 // ACTIVATE SERVER
