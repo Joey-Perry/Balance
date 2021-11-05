@@ -11,7 +11,7 @@ const { accounts, budgets, transactions } = require('./mockData');
 
 const { login, register, logout } = require('./controllers/authController');
 const { getUserAccounts, addNewAccount } = require('./controllers/accountController');
-const { getUserBudgets, addNewBudgetCategory } = require('./controllers/budgetController');
+const { getUserBudgets, addNewBudgetCategory, updateBudgetCategory, deleteBudgetCategory } = require('./controllers/budgetController');
 
 // MIDDLEWARE
 app.use(express.json());
@@ -42,6 +42,8 @@ app.post('/api/accounts', addNewAccount);
 // BUDGET CATEGORY ENDPOINTS
 app.get('/api/budgets', getUserBudgets);
 app.post('/api/budgets', addNewBudgetCategory);
+app.put('/api/budgets', updateBudgetCategory);
+app.delete('/api/budgets/:id', deleteBudgetCategory);
 
 // TRANSACTIONS ENDPOINTS
 app.get('/api/transactions', (req, res) => {

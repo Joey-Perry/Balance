@@ -3,7 +3,7 @@ import React from 'react';
 import useForm from '../../utils/useForm';
 import './form.css';
 
-const Form = ({toggleForm, fields, page }) => {
+const Form = ({toggleForm, fields, page, setValues }) => {
     const [values, handleChange] = useForm();
 
     const info = (e) => {
@@ -13,6 +13,7 @@ const Form = ({toggleForm, fields, page }) => {
             .then(res => {
                 console.log(res.data[0]);
                 toggleForm();
+                setValues(res.data);
             })
             .catch(err => console.log(err));
     }

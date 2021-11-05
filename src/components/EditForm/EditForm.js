@@ -1,27 +1,38 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useEffect } from 'react';
 import useForm from '../../utils/useForm';
 import './editForm.css';
 
-const EditForm = ({toggleForm, category, page }) => {
-    const [ values, handleChange ] = useForm();
+const EditForm = ({toggleForm, category, page, setValues }) => {
+    const [ values, handleChange ] = useForm(category[0]);
     
-    console.log(category);
+    // console.log(category);
+    // console.log(page);
     
     const info = (e) => {
         e.preventDefault();
 
-        console.log(values);
+        // console.log(values);
 
-        // axios.put(`/api/${page}`, values)
-        //     .then(res => {
-        //         console.log(res.data)
-        //         toggleForm();
-        //     })
-        //     .catch(err => console.log(err));
+        axios.put(`/api/${page}`, values)
+            .then(res => {
+                console.log(res.data)
+                toggleForm();
+                // setValues(res.data);
+            })
+            .catch(err => console.log(err));
     }
 
-    const field = category[0];
+    const deleteThis = () => {
+        // console.log(values);
+
+        axios.delete(`/api/${page}/${values.id}`)
+            .then(res => {
+                toggleForm();
+                setValues(res.data);
+            })
+            .catch(err => console.log(err));
+    }
 
     return (
         <>
@@ -29,23 +40,24 @@ const EditForm = ({toggleForm, category, page }) => {
 
 
                 <label>Name: </label>
-                <input value={field.name}
+                <input value={values.name}
                     name='name'
                     onChange={handleChange} />
 
                 <label>Expected: </label>
-                <input value={field.expected}
+                <input value={values.expected}
                     name='expected'
                     onChange={handleChange} />
 
                 <label>Date</label>
-                <input value={field.date}
+                <input value={values.date}
                     name='date'
                     onChange={handleChange} />
 
                 <button onClick={info}>SUBMIT</button>
             </form>
 
+            <button onClick={deleteThis}>DELETE</button>
             <button onClick={toggleForm}>CLOSE</button>
         </>
     )
