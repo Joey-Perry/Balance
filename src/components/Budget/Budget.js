@@ -23,7 +23,7 @@ const Budget = (props) => {
                 },0));
             })
             .catch(err => console.log(err))
-    }, [budgets])
+    }, [])
 
     // console.log({budgets});
 
@@ -54,22 +54,22 @@ const Budget = (props) => {
         e.target.classList.toggle('active');
     }
 
-    const toggleEditForm = (e) => {
-        console.log(e.target);
-        // console.log(e.target.innerHTML);
-        console.log(e.target.innerText);
-        // console.log(e.target.innerContent);
-        // console.log(budgets);
-        const targetCategory = budgets.filter(category => category.name === e.target.innerText);
+    const toggleEditForm = () => {
         setEditFormStatus(!editFormStatus);
-        setActiveCategory(targetCategory)
+        
+    }
+
+    const openEditForm = (e) => {
+        toggleEditForm();
+        const targetCategory = budgets.filter(category => category.name === e.target.innerText);
+        setActiveCategory(targetCategory);
     }
 
     return (
         <>
             <h1>October Budget</h1>
 
-            <Button location={props.location.pathname} />
+            <Button location={props.location.pathname} setValues={setBudgets} />
 
             <section className='budget-overview'>
                 <section className='section'>
@@ -97,7 +97,7 @@ const Budget = (props) => {
             </section>
 
             <section>
-                {budgets.map(category => {
+                {budgets.sort((a, b) => a.id - b.id).map(category => {
                     let displayAmount = 0;
                     if (showExpected){
                         displayAmount = category.expected
@@ -108,7 +108,7 @@ const Budget = (props) => {
                     }
 
                     return (
-                        <section className='categories' key={category.id} onClick={toggleEditForm}>
+                        <section className='categories' key={category.id} onClick={openEditForm}>
                             <h3 className='category-name'>{category.name}</h3>
                             <h3 className='category-amount'>{displayAmount}</h3>
 
@@ -121,7 +121,11 @@ const Budget = (props) => {
 
             {editFormStatus && 
                 <Modal>
-                    <EditForm toggleForm={toggleEditForm} category={activeCategory} />
+                    <EditForm 
+                        page={props.location.pathname}
+                        toggleForm={toggleEditForm} 
+                        category={activeCategory} 
+                        setValues={setBudgets} />
                 </Modal>}
 
         </>

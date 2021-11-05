@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Modal from '../Modal/Modal'
 import Form from '../Form/Form'
 
-const Button = ({location}) => {
+const Button = ({location, setValues}) => {
 
     const [formStatus, setFormStatus] = useState(false);
     const [editFormStatus, setEditFormStatus] = useState(false);
@@ -29,17 +29,11 @@ const Button = ({location}) => {
     return (
         <>
         <button onClick={toggleForm}> ADD NEW </button>
-        <button onClick={toggleForm}> EDIT MODE </button>
 
         {formStatus && 
         
             <Modal>
-                <Form toggleForm={toggleForm} fields={fields} page={location} />
-            </Modal>}
-
-        {editFormStatus && 
-            <Modal>
-                <Form toggleForm={toggleEditForm} />
+                <Form toggleForm={toggleForm} fields={fields} page={location} setValues={setValues} />
             </Modal>}
 
         </>

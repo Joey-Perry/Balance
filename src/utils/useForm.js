@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-const useForm = () => {
+const useForm = (defaultState = {}) => {
 
-    const [state, setState] = useState({});
+    const [state, setState] = useState(defaultState);
 
     const handleChange = (e) => {
         // e.persist();
