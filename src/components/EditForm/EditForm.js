@@ -18,7 +18,7 @@ const EditForm = ({toggleForm, category, page, setValues }) => {
             .then(res => {
                 console.log(res.data)
                 toggleForm();
-                // setValues(res.data);
+                setValues(res.data);
             })
             .catch(err => console.log(err));
     }
