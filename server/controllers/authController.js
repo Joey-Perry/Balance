@@ -46,7 +46,7 @@ const login = async (req, res) => {
 
 const register = async (req, res) => {
     const { firstName, lastName, username, email, password } = req.body;
-    console.log(req.body);
+    // console.log(req.body);
 
     try {
         const result = await db(req).get_user([username]);
@@ -57,7 +57,7 @@ const register = async (req, res) => {
         } else {
             const hash = bcrypt.hashSync(password);
             const registeredUser = await db(req).register_user([firstName, lastName, username, email, hash]);
-            console.log(registeredUser);
+            // console.log(registeredUser);
             const user = registeredUser[0];
             req.session.user = {
                 firstName: user.first_name,

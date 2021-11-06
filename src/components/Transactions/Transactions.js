@@ -13,15 +13,11 @@ const Transactions = (props) => {
             .catch(err => console.log(err))
     }, [])
 
-    const addTransaction = () => {
-        // display form
-    }
-
     return (
         <>
         <h1>Transactions</h1>
 
-        <Button location={props.location.pathname} />
+        <Button location={props.location.pathname} setValues={setTransactions}/>
 
         <section className='transactions-container'>
         {transactions.map((transaction, i) => {

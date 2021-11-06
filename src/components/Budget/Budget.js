@@ -111,8 +111,6 @@ const Budget = (props) => {
                         <section className='categories' key={category.id} onClick={openEditForm}>
                             <h3 className='category-name'>{category.name}</h3>
                             <h3 className='category-amount'>{displayAmount}</h3>
-
-
                         </section>
                     )
                 })}
