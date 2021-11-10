@@ -56,7 +56,6 @@ const Budget = (props) => {
 
     const toggleEditForm = () => {
         setEditFormStatus(!editFormStatus);
-        
     }
 
     const openEditForm = (e) => {

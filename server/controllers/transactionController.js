@@ -15,7 +15,7 @@ const addNewTransaction = async (req, res) => {
 
     const { vendor, amount, category, description, date } = req.body;
     const { username } = req.session.user;
-    // console.log(req.body);
+    console.log(req.body);
 
     try {
         const user = await db(req).get_user(username);

@@ -16,7 +16,7 @@ const Form = ({toggleForm, fields, page, setValues }) => {
         } else {
             axios.post(`/api/${page}`, values)
                 .then(res => {
-                    console.log(res.data[0]);
+                    console.log(res.data);
                     toggleForm();
                     setValues(res.data);
                 })
