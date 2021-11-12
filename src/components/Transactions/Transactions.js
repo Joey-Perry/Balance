@@ -1,24 +1,27 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import Button from '../Button/Button';
+import Modal from '../Modal/Modal';
+import EditTransactionsForm from '../EditTransactionsForm/EditTransactionsForm';
 import './transactions.css';
 
 const Transactions = (props) => {
 
     const [transactions, setTransactions] = useState([]);
     const [activeCategory, setActiveCategory] = useState('');
+    const [editFormStatus, setEditFormStatus] = useState(false);
 
 
-    // const toggleEditForm = () => {
-    //     setEditFormStatus(!editFormStatus);
-    // }
+    const toggleEditForm = () => {
+        setEditFormStatus(!editFormStatus);
+    }
 
     const openEditForm = (e, id) => {
-        // toggleEditForm();
-        console.log(e.target);
+        toggleEditForm();
+        // console.log(e.target);
         const targetCategory = transactions.filter(item => item.id === id);
-        // setActiveCategory(targetCategory);
-        console.log(targetCategory);
+        setActiveCategory(targetCategory);
+        // console.log(targetCategory);
     }
 
     useEffect(() => {
@@ -52,6 +55,16 @@ const Transactions = (props) => {
             )
         })}
         </section>
+
+        {editFormStatus && 
+                <Modal>
+                    <EditTransactionsForm 
+                        page={props.location.pathname}
+                        toggleForm={toggleEditForm} 
+                        category={activeCategory} 
+                        setValues={setTransactions} 
+                        />
+                </Modal>}
         </>
     )
 }
