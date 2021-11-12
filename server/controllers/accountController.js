@@ -2,7 +2,7 @@ const db = (req) => req.app.get('db');
 
 const getUserAccounts = async (req, res) => {
 
-    console.log(req.session.user);
+    // console.log(req.session.user);
 
     try {
         const user = await db(req).get_user(req.session.user.username);

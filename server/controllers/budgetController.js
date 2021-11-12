@@ -16,7 +16,7 @@ const addNewBudgetCategory = async (req, res) => {
 
     const { expected, actual, name, date } = req.body;
     const { username } = req.session.user;
-    console.log(req.body);
+    // console.log(req.body);
 
     try {
         const user = await db(req).get_user(username);

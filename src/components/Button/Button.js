@@ -33,7 +33,11 @@ const Button = ({location, setValues}) => {
         {formStatus && 
         
             <Modal>
-                <Form toggleForm={toggleForm} fields={fields} page={location} setValues={setValues} />
+                <Form 
+                    toggleForm={toggleForm} 
+                    fields={fields} 
+                    page={location} 
+                    setValues={setValues} />
             </Modal>}
 
         </>
