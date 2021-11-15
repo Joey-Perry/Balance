@@ -22,8 +22,8 @@ const Button = ({location, setValues}) => {
         fields = ['vendor', 'amount', 'category', 'description', 'date'];
     } else if (location === '/budgets'){
         fields = ['name', 'expected', 'date'];
-    } else if (location === '/accountDetails'){
-        fields = ['type', 'name', 'notes', 'amounts'];
+    } else if (location === '/account-details'){
+        fields = ['type', 'name', 'notes', 'amount'];
     }
 
     return (

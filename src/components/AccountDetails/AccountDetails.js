@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react'
+import Button from '../Button/Button';
 import './accountDetails.css'
 
-const AccountDetails = () => {
+const AccountDetails = (props) => {
 
     const [accounts, setAccounts] = useState([]);
 
@@ -14,12 +15,12 @@ const AccountDetails = () => {
 
     return (
         <>
-        <button>Add New</button>
+        <Button location={props.location.pathname} setValues={setAccounts} />
 
         <h2>Account Details</h2>
 
         <h3>Checking</h3>
-        {accounts.filter(account => account.type === 'checking').map(account => {
+        {accounts.filter(account => account.type.toLowerCase() === 'checking').map(account => {
             return (
                 <>
                 <h4>{account.name}</h4>
@@ -30,7 +31,7 @@ const AccountDetails = () => {
         })}
 
         <h3>Saving</h3>
-        {accounts.filter(account => account.type === 'saving').map(account => {
+        {accounts.filter(account => account.type.toLowerCase() === 'savings').map(account => {
             return (
                 <>
                 <h4>{account.name}</h4>
@@ -41,7 +42,7 @@ const AccountDetails = () => {
         })}
 
         <h3>Debt</h3>
-        {accounts.filter(account => account.type === 'debt').map(account => {
+        {accounts.filter(account => account.type.toLowerCase() === 'debt').map(account => {
             return (
                 <>
                 <h4>{account.name}</h4>

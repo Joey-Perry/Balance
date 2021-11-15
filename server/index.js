@@ -7,7 +7,7 @@ const path = require('path');
 const session = require('express-session');
 const { CONNECTION_STRING, SESSION_SECRET } = process.env;
 const PORT = process.env.port || 5050;
-const { accounts, budgets, transactions } = require('./mockData');
+// const { accounts, budgets, transactions } = require('./mockData');
 
 const { login, register, logout } = require('./controllers/authController');
 const { getUserAccounts, addNewAccount } = require('./controllers/accountController');
@@ -38,7 +38,7 @@ app.use(session({
 // ENDPOINTS
 // ACCOUNT ENDPOINTS
 app.get('/api/accounts', getUserAccounts);
-app.post('/api/accounts', addNewAccount);
+app.post('/api/account-details', addNewAccount);
 
 // BUDGET CATEGORY ENDPOINTS
 app.get('/api/budgets', getUserBudgets);

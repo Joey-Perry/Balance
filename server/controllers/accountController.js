@@ -16,7 +16,8 @@ const getUserAccounts = async (req, res) => {
 
 const addNewAccount = async (req, res) => {
 
-    const { username, type, name, notes, amount } = req.body;
+    const { type, name, notes, amount } = req.body;
+    const { username } = req.session.user;
 
     try {
         const user = await db(req).get_user(username);
