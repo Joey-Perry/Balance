@@ -13,6 +13,7 @@ const Budget = (props) => {
     const [showActual, setShowActual] = useState(false);
     const [editFormStatus, setEditFormStatus ] = useState(false);
     const [activeCategory, setActiveCategory] = useState({});
+    const [transactions, setTransactions] = useState([]);
     
     useEffect(() => {
         axios.get('/api/budgets')
@@ -23,9 +24,14 @@ const Budget = (props) => {
                 },0));
             })
             .catch(err => console.log(err))
+
+        axios.get('/api/transactions')
+            .then(res => setTransactions(res.data))
+            .catch(err => console.log(err))
     }, [])
 
     // console.log({budgets});
+    // console.log({transactions});
 
     const displayExpected = (e) => {
         setShowExpected(true);
@@ -43,6 +49,15 @@ const Budget = (props) => {
             child.classList.remove('active');
         });
         e.target.classList.toggle('active');
+
+        budgets.map(budget => {
+            const selectedTransactions = transactions.filter(transaction => transaction.category === budget.name);
+            budget.actual = selectedTransactions.reduce((acc, curr) => {
+                return acc + curr.amount
+            }, 0)
+            return budget;
+        })
+        // console.log({budgets});
     }
 
     const displayRemainder = (e) => {

@@ -37,7 +37,7 @@ const AccountDetails = (props) => {
         <h3>Checking</h3>
         {accounts.filter(account => account.type.toLowerCase() === 'checking').map(account => {
             return (
-                <div onClick={() => openEditForm(account)}>
+                <div onClick={() => openEditForm(account)} key={account.id}>
                 <h4>{account.name}</h4>
                 <h6>{account.notes}</h6>
                 <h6>{account.amount}</h6>
@@ -48,7 +48,7 @@ const AccountDetails = (props) => {
         <h3>Saving</h3>
         {accounts.filter(account => account.type.toLowerCase() === 'savings').map(account => {
             return (
-                <div onClick={() => openEditForm(account)}>
+                <div onClick={() => openEditForm(account)} key={account.id}>
                 <h4>{account.name}</h4>
                 <h6>{account.notes}</h6>
                 <h6>{account.amount}</h6>
@@ -59,7 +59,7 @@ const AccountDetails = (props) => {
         <h3>Debt</h3>
         {accounts.filter(account => account.type.toLowerCase() === 'debt').map(account => {
             return (
-                <div onClick={() => openEditForm(account)}>
+                <div onClick={() => openEditForm(account)} key={account.id}>
                 <h4>{account.name}</h4>
                 <h6>{account.notes}</h6>
                 <h6>{account.amount}</h6>
