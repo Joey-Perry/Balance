@@ -47,6 +47,7 @@ const EditTransactionsForm = ({toggleForm, category, page, setValues }) => {
 
     const setCategory = () => {
         console.log(selectedCategory);
+        setSelectedCategory(selectedCategory);
     }
 
     return (
