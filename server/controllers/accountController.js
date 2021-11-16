@@ -16,7 +16,8 @@ const getUserAccounts = async (req, res) => {
 
 const addNewAccount = async (req, res) => {
 
-    const { username, type, name, notes, amount } = req.body;
+    const { type, name, notes, amount } = req.body;
+    const { username } = req.session.user;
 
     try {
         const user = await db(req).get_user(username);
@@ -28,22 +29,35 @@ const addNewAccount = async (req, res) => {
     }
 }
 
-// const deleteOne = (req, res) => {
-//     const { id } = req.params;
+const updateAccountDetails = async (req, res) => {
+    const { id, type, name, notes, amount } = req.body;
+    const { username } = req.session.user;
 
-//     db(req).delete_one(id)
-//         .then(data => res.sendStatus(200))
-//         .catch(err => console.log(`Error deleting id ${id}: ${err}`));
-// };
+    try {
+        const user = await db(req).get_user(username);
+        const userId = user[0].id;
+        const data = await db(req).update_account_details([id, type, name, notes, amount, userId]);
+        res.status(200).send(data)
+    } catch (err) {
+        console.log(`Error updating account: ${err}`);
+    }
+};
 
-// const update = (req, res) => {
-//     const { body } = req.body;
+const deleteAccount = async (req, res) => {
+    const { id } = req.params;
+    const { username } = req.session.user;
 
-//     db(req).update(body)
-//         .then(data => res.status(200).send(data))
-//         .catch(err => console.log(`Error updating data: ${err}`));
-// };
+    try {
+        const user = await db(req).get_user(username);
+        const userId = user[0].id;
+        const data = await db(req).delete_account([id, userId]);
+        res.status(200).send(data)
+    } catch (err) {
+        console.log(`Error deleting account: ${err}`);
+    }
+};
+
 
 module.exports = {
-    getUserAccounts, addNewAccount
+    getUserAccounts, addNewAccount, updateAccountDetails, deleteAccount
 }

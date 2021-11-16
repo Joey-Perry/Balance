@@ -7,6 +7,7 @@ const Form = ({toggleForm, fields, page, setValues }) => {
     const [values, handleChange] = useForm();
     const [ categories, setCategories ] = useState([]);
     const [ selectedCategory, setSelectedCategory ] = useState('Select one');
+    const [ selectedType, setSelectedType ] = useState('Select one');
 
     const info = (e) => {
         e.preventDefault();
@@ -14,6 +15,7 @@ const Form = ({toggleForm, fields, page, setValues }) => {
         if (values.category === 'Select One'){
             alert('Please select a Category!');
         } else {
+            console.log(page);
             axios.post(`/api/${page}`, values)
                 .then(res => {
                     console.log(res.data);
@@ -27,6 +29,11 @@ const Form = ({toggleForm, fields, page, setValues }) => {
     const setCategory = (e) => {
         handleChange(e);
         setSelectedCategory(e.target.value);
+    }
+
+    const setType = (e) => {
+        handleChange(e);
+        setSelectedType(e.target.value);
     }
 
     useEffect(() => {
@@ -56,6 +63,21 @@ const Form = ({toggleForm, fields, page, setValues }) => {
                                 {categories.map((name, i) => {
                                     return <option key={i} value={name} >{name.toUpperCase()}</option>
                                 })}
+                            </select>
+                        </div>
+                    )
+                }
+
+                if (field === 'type'){
+                    console.log('account type');
+                    return (
+                        <div key={i}>
+                            <label>Type: </label>
+                            <select value={selectedType} onChange={setType} name='type'>
+                                <option selected>Select One</option>
+                                <option value='checking'>Checking</option>
+                                <option value='savings'>Savings</option>
+                                <option value='debt'>Debt</option>
                             </select>
                         </div>
                     )
