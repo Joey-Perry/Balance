@@ -10,7 +10,7 @@ const PORT = process.env.port || 5050;
 // const { accounts, budgets, transactions } = require('./mockData');
 
 const { login, register, logout } = require('./controllers/authController');
-const { getUserAccounts, addNewAccount } = require('./controllers/accountController');
+const { getUserAccounts, addNewAccount, updateAccountDetails, deleteAccount } = require('./controllers/accountController');
 const { getUserBudgets, addNewBudgetCategory, updateBudgetCategory, deleteBudgetCategory } = require('./controllers/budgetController');
 const { getUserTransactions, addNewTransactions, updateTransactions, deleteTransaction, addNewTransaction } = require('./controllers/transactionController');
 
@@ -39,6 +39,8 @@ app.use(session({
 // ACCOUNT ENDPOINTS
 app.get('/api/accounts', getUserAccounts);
 app.post('/api/account-details', addNewAccount);
+app.put('/api/account-details', updateAccountDetails);
+app.delete('/api/account-details/:id', deleteAccount);
 
 // BUDGET CATEGORY ENDPOINTS
 app.get('/api/budgets', getUserBudgets);
