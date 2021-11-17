@@ -41,7 +41,7 @@ const Dash = (props) => {
     return (
         <section className='dash'>
 
-        <h1 className='overview'>OVERVIEW</h1>
+        <h1 className='overview'>DASHBOARD</h1>
 
         <section className='account networth-section'>
             <h6 className='networth'>NET WORTH</h6>

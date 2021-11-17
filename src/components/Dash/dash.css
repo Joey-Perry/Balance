@@ -28,11 +28,45 @@
   }
 
   @media only screen and (min-width: 1000px){
-      .account-totals {
-          background-color: lightcoral;
+    .dash {
+        border: 2px solid black;
+        display: flex;
+        flex-direction: column;
+    }  
+
+    .overview {
+        border: 2px solid black;
+    }
+
+    .account-totals {
+          background-color: lightgray;
+          display: flex;
+          flex-direction: row;
       }
 
       .account {
           border: 2px solid black;
+          width: 300px;
+          height: 100px;
+          border-radius: 10px;
+          margin: 0px 20px;
+      }
+
+      .networth-section {
+          border: 2px solid green;
+          align-self: center;
+          margin: 40px 0px;
+      }
+
+      .checking-section {
+          border: 2px solid red;
+      }
+
+      .savings-section {
+          border: 2px solid yellow;
+      }
+
+      .debt-section {
+          border: 2px solid blue;
       }
   }
