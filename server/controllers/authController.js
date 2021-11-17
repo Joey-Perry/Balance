@@ -1,4 +1,7 @@
 const bcrypt = require('bcryptjs');
+const nodemailer = require('nodemailer');
+const { USER, WORD, CLIENT_ID, CLIENT_SECRET, REFRESH_TOKEN } = process.env;
+
 const db = (req) => req.app.get('db');
 
 const getUser = async (req, res) => {
@@ -65,6 +68,33 @@ const register = async (req, res) => {
                 username: user.username,
                 email: user.email
             }
+
+            let testAccount = await nodemailer.createTestAccount();
+            let transporter = nodemailer.createTransport({
+                service: "gmail",
+                auth: {
+                    type: "OAuth2",
+                    user: USER,
+                    pass: WORD,
+                    clientId: CLIENT_ID,
+                    clientSecret: CLIENT_SECRET,
+                    refreshToken: REFRESH_TOKEN,
+                }
+            });
+            let info = await transporter.sendMail({
+                from: '"Father Foo" <foo@example.com>',
+                to: "joeyap84@gmail.com",
+                subject: "This is from Nodemailer",
+                text: "Congratulations on registering!",
+                html: "<h1> Congratulations! </h1> <p> Thank you for registering! </p>"
+            }, (err, data) => {
+                if (err) {
+                    console.log(`Error: ${err}`);
+                } else {
+                    console.log(`Email sent successfully!`);
+                }
+            });
+
             return res.status(201).send(req.session.user);
         }
     } catch (err) {
