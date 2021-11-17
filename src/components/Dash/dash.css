@@ -31,4 +31,8 @@
       .account-totals {
           background-color: lightcoral;
       }
+
+      .account {
+          border: 2px solid black;
+      }
   }
