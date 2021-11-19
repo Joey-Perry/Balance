@@ -8,7 +8,6 @@ import EditForm from '../EditForm/EditForm';
 const Budget = (props) => {
 
     const [budgets, setBudgets] = useState([]);
-    const [totalPlanned, setTotalPlanned] = useState(0);
     const [showExpected, setShowExpected] = useState(true);
     const [showActual, setShowActual] = useState(false);
     const [editFormStatus, setEditFormStatus ] = useState(false);
@@ -19,9 +18,6 @@ const Budget = (props) => {
         axios.get('/api/budgets')
             .then(res => {
                 setBudgets(res.data);
-                setTotalPlanned(res.data.reduce((acc, curr) => {
-                    return acc + curr.expected
-                },0));
             })
             .catch(err => console.log(err))
 
@@ -80,29 +76,8 @@ const Budget = (props) => {
     }
 
     return (
-        <>
-            <h1>October Budget</h1>
-
-            <Button location={props.location.pathname} setValues={setBudgets} />
-
-            <section className='budget-overview'>
-                <section className='section'>
-                    {/* calculated based on income put in transactions for that month */}
-                    <h6>Income</h6>
-                    <h3>$3000</h3>
-                </section>
-
-                <section className='section'>
-                    {/* calculated based on expected amounts in each category */}
-                    <h6>Total Planned</h6>
-                    <h3>$2700</h3>
-                </section>
-
-                <section className='section'>
-                    <h6>Total Remaining</h6>
-                    <h3>$300</h3>
-                </section>
-            </section>
+        <section className='budgets'>
+            <h1>Budget Categories</h1>
 
             <section className='budget-headers'>
                 <h4 onClick={displayExpected} className='active'>Expected</h4>
@@ -130,6 +105,7 @@ const Budget = (props) => {
                 })}
             </section>
 
+            <Button location={props.location.pathname} setValues={setBudgets} />
 
             {editFormStatus && 
                 <Modal>
@@ -140,7 +116,7 @@ const Budget = (props) => {
                         setValues={setBudgets} />
                 </Modal>}
 
-        </>
+        </section>
     )
 }
 

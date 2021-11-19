@@ -17,7 +17,7 @@ const Signin = (props) => {
     }
 
     return (
-        <>
+        <section className='authentication'>
         <h1>Authentication</h1>
 
         <section className='signin'>
@@ -40,7 +40,7 @@ const Signin = (props) => {
             <p>Don't have an account? <Link to='/signup'>Sign up</Link></p>
         </section>
 
-        </>
+        </section>
     )
 }
 

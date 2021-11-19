@@ -8,6 +8,10 @@
     margin: 10px 0px;
 }
 
+.login h5 {
+    margin-right: 25px;
+}
+
 .login input {
     height: 30px;
     width: 100%;

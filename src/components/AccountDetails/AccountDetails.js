@@ -29,43 +29,51 @@ const AccountDetails = (props) => {
     }
 
     return (
-        <>
-        <Button location={props.location.pathname} setValues={setAccounts} />
+        <section className='account-details'>
 
         <h2>Account Details</h2>
+        <section className='accounts-by-type'>
+            <section className='individual-accounts'>
+            <h3>Checking</h3>
+            {accounts.filter(account => account.type.toLowerCase() === 'checking').map(account => {
+                return (
+                    <div onClick={() => openEditForm(account)} key={account.id} className='specific-accounts'>
+                    <h4 className='account-name'>{account.name}</h4>
+                    <h6 className='account-amount'>${account.amount}</h6>
+                    <h6 className='account-notes'>{account.notes}</h6>
+                    </div>
+                )
+            })}
+            </section>
 
-        <h3>Checking</h3>
-        {accounts.filter(account => account.type.toLowerCase() === 'checking').map(account => {
-            return (
-                <div onClick={() => openEditForm(account)} key={account.id}>
-                <h4>{account.name}</h4>
-                <h6>{account.notes}</h6>
-                <h6>{account.amount}</h6>
-                </div>
-            )
-        })}
+            <section className='individual-accounts'>
+            <h3>Saving</h3>
+            {accounts.filter(account => account.type.toLowerCase() === 'savings').map(account => {
+                return (
+                    <div onClick={() => openEditForm(account)} key={account.id} className='specific-accounts'>
+                    <h4 className='account-name'>{account.name}</h4>
+                    <h6 className='account-amount'>${account.amount}</h6>
+                    <h6 className='account-notes'>{account.notes}</h6>
+                    </div>
+                )
+            })}
+            </section>
 
-        <h3>Saving</h3>
-        {accounts.filter(account => account.type.toLowerCase() === 'savings').map(account => {
-            return (
-                <div onClick={() => openEditForm(account)} key={account.id}>
-                <h4>{account.name}</h4>
-                <h6>{account.notes}</h6>
-                <h6>{account.amount}</h6>
-                </div>
-            )
-        })}
 
-        <h3>Debt</h3>
-        {accounts.filter(account => account.type.toLowerCase() === 'debt').map(account => {
-            return (
-                <div onClick={() => openEditForm(account)} key={account.id}>
-                <h4>{account.name}</h4>
-                <h6>{account.notes}</h6>
-                <h6>{account.amount}</h6>
-                </div>
-            )
-        })}
+            <section className='individual-accounts'>
+            <h3>Debt</h3>
+            {accounts.filter(account => account.type.toLowerCase() === 'debt').map(account => {
+                return (
+                    <div onClick={() => openEditForm(account)} key={account.id} className='specific-accounts'>
+                    <h4 className='account-name'>{account.name}</h4>
+                    <h6 className='account-amount'>${account.amount}</h6>
+                    <h6 className='account-notes'>{account.notes}</h6>
+                    </div>
+                )
+            })}
+            </section>
+        </section>
+        <Button location={props.location.pathname} setValues={setAccounts} />
 
         {editFormStatus && 
                 <Modal>
@@ -76,7 +84,7 @@ const AccountDetails = (props) => {
                         setValues={setAccounts} />
                 </Modal>}
 
-        </>
+        </section>
     )
 }
 
