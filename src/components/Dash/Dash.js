@@ -41,7 +41,7 @@ const Dash = (props) => {
     return (
         <section className='dash'>
 
-        <h1 className='overview'>OVERVIEW</h1>
+        <h1 className='overview'>DASHBOARD</h1>
 
         <section className='account networth-section'>
             <h6 className='networth'>NET WORTH</h6>
@@ -52,17 +52,17 @@ const Dash = (props) => {
             
             <section className='account checking-section'>
                 <h6 className='checking'>CHECKING</h6>
-                <h2>{checking}</h2>
+                <h2>${checking}</h2>
             </section>
 
             <section className='account savings-section'>
                 <h6 className='savings'>SAVINGS</h6>
-                <h2>{savings}</h2>
+                <h2>${savings}</h2>
             </section>
 
             <section className='account debt-section'>
                 <h6 className='debt'>DEBT</h6>
-                <h2>({debt})</h2>
+                <h2>$({debt})</h2>
             </section>
 
         </section>

@@ -1,5 +1,9 @@
 .App {
-  border: 2px solid black;
+  /* border: 2px solid black; */
+  border: 3px solid white;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(43, 43, 43);
 }
 
 .App-logo {
@@ -34,5 +38,19 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media only screen and (min-width: 600px){
+  .App {
+    flex-direction: row-reverse;
+    height: 100vh;
+  }
+}
+
+@media only screen and (min-width: 1000px){
+  .App {
+    flex-direction: row-reverse;
+    height: 100vh;
   }
 }

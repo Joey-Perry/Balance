@@ -19,7 +19,7 @@ const Menu = (props) => {
             <li><h2><Link to='/account-details'>Account Details</Link></h2></li>
             <li><h2><Link to='/budgets'>Budget</Link></h2></li>
             <li><h2><Link to='/transactions'>Transactions</Link></h2></li>
-            <li><h2 onClick={logout}>Log-out</h2></li>
+            <li><h2 onClick={logout} className='log-out'>Log-out</h2></li>
 
             </ul>
 
