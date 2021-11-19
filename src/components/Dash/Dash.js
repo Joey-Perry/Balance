@@ -52,17 +52,17 @@ const Dash = (props) => {
             
             <section className='account checking-section'>
                 <h6 className='checking'>CHECKING</h6>
-                <h2>{checking}</h2>
+                <h2>${checking}</h2>
             </section>
 
             <section className='account savings-section'>
                 <h6 className='savings'>SAVINGS</h6>
-                <h2>{savings}</h2>
+                <h2>${savings}</h2>
             </section>
 
             <section className='account debt-section'>
                 <h6 className='debt'>DEBT</h6>
-                <h2>({debt})</h2>
+                <h2>$({debt})</h2>
             </section>
 
         </section>

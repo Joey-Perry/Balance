@@ -5,10 +5,14 @@
 .overview {
     /* border: 2px solid black; */
     padding: 15px 0px;
+    color: white;
 }
 
 .account {
     padding: 25px 10px;
+}
+.account h2 {
+    color: white;
 }
 
 .account h6 {
@@ -22,51 +26,115 @@
 }
 
 @media only screen and (min-width: 600px) {
-    .account-totals {
-      background-color: lightblue;
-    }
-  }
-
-  @media only screen and (min-width: 1000px){
     .dash {
-        border: 2px solid black;
+        /* border: 2px solid black; */
         display: flex;
         flex-direction: column;
+        background-color: #282c34;
+        padding: 0px 30px 100px 30px;
     }  
 
     .overview {
-        border: 2px solid black;
+        /* border: 2px solid black; */
+        text-align: left;
+        margin-left: 20px;
     }
 
     .account-totals {
-          background-color: lightgray;
+          /* background-color: lightgray; */
           display: flex;
           flex-direction: row;
       }
 
       .account {
-          border: 2px solid black;
-          width: 300px;
-          height: 100px;
+          width: 100px;
           border-radius: 10px;
           margin: 0px 20px;
+          padding-top: 50px;
+          background-color: rgb(90, 90, 90);
+      }
+
+      .account h2 {
+          font-size: 20px;
+      }
+
+      .account h6 {
+          color: rgb(14, 13, 13);
+          font-size: 10px;
+          font-weight: bold;
       }
 
       .networth-section {
-          border: 2px solid green;
-          align-self: center;
-          margin: 40px 0px;
+          /* border: 2px solid green; */
+          margin: 50px 0px 80px 20px;
+          text-align: left;
       }
 
       .checking-section {
-          border: 2px solid red;
+          /* border: 2px solid red; */
       }
 
       .savings-section {
-          border: 2px solid yellow;
+          /* border: 2px solid yellow; */
       }
 
       .debt-section {
-          border: 2px solid blue;
+          /* border: 2px solid blue; */
+      }
+  }
+
+  @media only screen and (min-width: 1000px){
+    .dash {
+        /* border: 2px solid black; */
+        display: flex;
+        flex-direction: column;
+        background-color: #282c34;
+        padding-bottom: 45px;
+        
+    }  
+
+    .overview {
+        /* border: 2px solid black; */
+        text-align: left;
+        margin-left: 20px;
+    }
+
+    .account-totals {
+          /* background-color: lightgray; */
+          display: flex;
+          flex-direction: row;
+      }
+
+      .account {
+          /* border: 2px solid black; */
+          width: 300px;
+          border-radius: 10px;
+          margin: 0px 20px;
+          padding-top: 100px;
+          background-color: rgb(90, 90, 90);
+      }
+
+      .account h6 {
+          color: rgb(14, 13, 13);
+          font-size: 12px;
+          font-weight: bold;
+      }
+
+      .networth-section {
+          /* border: 2px solid green; */
+          margin: 50px 0px 80px 20px;
+          text-align: left;
+      }
+
+      .checking-section {
+          /* border: 2px solid red; */
+      }
+
+      .savings-section {
+          /* border: 2px solid yellow; */
+      }
+
+      .debt-section {
+          /* border: 2px solid blue; */
       }
   }
