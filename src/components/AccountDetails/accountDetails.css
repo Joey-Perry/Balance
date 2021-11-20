@@ -9,25 +9,20 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    /* margin: 25px 0px; */
 }
 
 .specific-accounts {
     border: 2px solid white;
-    /* margin: 25px 0px; */
     position: relative;
     display: flex;
-    /* flex-direction: column; */
     padding: 25px 10px;
 }
 
 .individual-accounts {
-    /* border: 2px solid red; */
     margin: 20px 10px;
     padding: 10px 15px;
     background-color: rgb(90, 90, 90);
     border-radius: 10px;
-    /* color: white; */
 }
 
 .individual-accounts h3 {
@@ -37,11 +32,9 @@
 .account-name {
     margin-right: 20px;
     font-size: 14px;
-    /* margin-bottom: 10px; */
 }
 
 .account-amount {
-    /* margin-right: 20px; */
     font-size: 12px;
     position: absolute;
     right: 45%;
@@ -92,7 +85,6 @@
 
 @media only screen and (min-width: 1000px){
     .account-details {
-        /* border: 4px solid blue; */
         padding: 25px;
         color: white;
         background-color: #282c34;
@@ -100,6 +92,7 @@
 
     .accounts-by-type {
         display: flex;
+        flex-direction: row;
     }
 
     .specific-accounts {
@@ -110,21 +103,25 @@
     }
 
     .individual-accounts {
-        /* border: 2px solid red; */
         margin: 25px;
         padding: 10px 25px;
-        background-color: rgb(90, 90, 90);
         border-radius: 10px;
-        /* color: white; */
     }
 
     .account-name {
         margin-right: 20px;
+        position: relative;
     }
 
     .account-amount {
         margin-right: 20px;
         font-size: 15px;
+        position: relative;
+        right: 0;
+    }
+
+    .account-notes {
+        position: relative;
     }
   
 }
