@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import Chart from '../Chart/Chart';
 import './dash.css';
 
 const Dash = (props) => {
@@ -43,9 +44,12 @@ const Dash = (props) => {
 
         <h1 className='overview'>DASHBOARD</h1>
 
-        <section className='account networth-section'>
-            <h6 className='networth'>NET WORTH</h6>
-            <h2>${networth}</h2>
+        <section className='top-of-dash'>
+            <section className='account networth-section'>
+                <h6 className='networth'>NET WORTH</h6>
+                <h2>${networth}</h2>
+            </section>
+            <Chart checking={checking} savings={savings} debt={debt} />
         </section>
 
         <section className='account-totals'>

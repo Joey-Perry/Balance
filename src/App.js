@@ -28,7 +28,7 @@ const App = (props) => {
 
       {loggedInStatus && 
         <>
-        <main>{routes}</main>
+        <main className='main'>{routes}</main>
         <Nav />
         </>
       }

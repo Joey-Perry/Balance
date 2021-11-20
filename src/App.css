@@ -53,4 +53,9 @@
     flex-direction: row-reverse;
     height: 100vh;
   }
+
+  .main {
+    background-color: #282c34;
+    border: 2px solid red;
+  }
 }

@@ -93,6 +93,13 @@
         
     }  
 
+    .top-of-dash {
+        /* border: 2px solid blue; */
+        display: flex;
+        justify-content: space-around;
+        padding-bottom: 80px;
+    }
+
     .overview {
         /* border: 2px solid black; */
         text-align: left;
