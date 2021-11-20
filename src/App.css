@@ -43,9 +43,9 @@
 
 @media only screen and (min-width: 600px){
   .App {
-    flex-direction: row-reverse;
     height: 100vh;
   }
+
 }
 
 @media only screen and (min-width: 1000px){

@@ -18,7 +18,7 @@ const Signin = (props) => {
 
     return (
         <section className='authentication'>
-        <h1>Authentication</h1>
+        <h1>Balance App</h1>
 
         <section className='signin'>
 
