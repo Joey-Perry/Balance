@@ -5,7 +5,7 @@ import { logoutUser } from '../../redux/authReducer';
 import './menu.css';
 
 const Menu = (props) => {
-    // console.log(props);
+    console.log(props);
 
     const logout = () => {
         props.logoutUser();

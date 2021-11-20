@@ -4,16 +4,21 @@ import routes from './routes'
 import authRoutes from './authRoutes'
 import { connect } from 'react-redux';
 import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const App = (props) => {
 
   const [loggedInStatus, setLoggedInStatus ] = useState(false);
+  const history = useHistory();
 
   // console.log(loggedInStatus);
 
   useEffect(() => {
     // console.log(props.state);
     setLoggedInStatus(props.state.loggedIn);
+    if (!props.state.loggedIn){
+      history.push("/");
+    }
   }, [props.state])
 
   return (
@@ -23,7 +28,7 @@ const App = (props) => {
 
       {loggedInStatus && 
         <>
-        <main>{routes}</main>
+        <main className='main'>{routes}</main>
         <Nav />
         </>
       }

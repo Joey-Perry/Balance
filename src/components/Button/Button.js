@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Modal from '../Modal/Modal'
 import Form from '../Form/Form'
+import './button.css';
 
 const Button = ({location, setValues}) => {
 
@@ -28,7 +29,7 @@ const Button = ({location, setValues}) => {
 
     return (
         <>
-        <button onClick={toggleForm}> ADD NEW </button>
+        <button onClick={toggleForm} className='add-new-btn'> + </button>
 
         {formStatus && 
         

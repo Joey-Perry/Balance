@@ -23,7 +23,7 @@ const Signup = () => {
     }
     
     return (
-        <>
+        <section className='authentication'>
         <h1>Authentication 2</h1>
 
         <section className='signin'>
@@ -63,7 +63,7 @@ const Signup = () => {
             <p>Already have an account? <Link to='/'>Sign In</Link></p>
         </section>
 
-        </>
+        </section>
     )
 }
 

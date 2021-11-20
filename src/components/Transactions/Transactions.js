@@ -31,10 +31,8 @@ const Transactions = (props) => {
     }, [])
 
     return (
-        <>
+        <section className='transactions-overview'>
         <h1>Transactions</h1>
-
-        <Button location={props.location.pathname} setValues={setTransactions}/>
 
         <section className='transactions-container'>
         {transactions.map(transaction => {
@@ -45,7 +43,7 @@ const Transactions = (props) => {
                     <section className='vendor-and-date'>
                         <h4 className='vendor'>{transaction.vendor}</h4>
                         <h6>{transaction.description}</h6>
-                        <h6>{transaction.date}</h6>
+                        <h6>{transaction.date.split('T')[0]}</h6>
                     </section>
 
                     <h6 className='category'>{transaction.category}</h6>
@@ -65,7 +63,9 @@ const Transactions = (props) => {
                         setValues={setTransactions} 
                         />
                 </Modal>}
-        </>
+
+        <Button location={props.location.pathname} setValues={setTransactions}/>
+        </section>
     )
 }
 
