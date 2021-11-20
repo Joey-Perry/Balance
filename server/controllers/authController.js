@@ -69,7 +69,6 @@ const register = async (req, res) => {
                 email: user.email
             }
 
-            let testAccount = await nodemailer.createTestAccount();
             let transporter = nodemailer.createTransport({
                 service: "gmail",
                 auth: {
@@ -82,11 +81,11 @@ const register = async (req, res) => {
                 }
             });
             let info = await transporter.sendMail({
-                from: '"Father Foo" <foo@example.com>',
-                to: "joeyap84@gmail.com",
-                subject: "This is from Nodemailer",
+                from: "Balance App",
+                to: user.email,
+                subject: "Balance App Registration Confirmation",
                 text: "Congratulations on registering!",
-                html: "<h1> Congratulations! </h1> <p> Thank you for registering! </p>"
+                html: "<h1> Congratulations! </h1> <p> Thank you for registering for the Balance App! If you have any questions please email us at balanceApp@gmail.com </p>"
             }, (err, data) => {
                 if (err) {
                     console.log(`Error: ${err}`);
