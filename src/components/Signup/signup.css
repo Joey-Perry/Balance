@@ -35,3 +35,9 @@
     text-align: center;
     margin-bottom: 100px;
 }
+
+@media only screen and (min-width: 1000px){
+    .login h5 {
+        font-size: 20px;
+    }
+}

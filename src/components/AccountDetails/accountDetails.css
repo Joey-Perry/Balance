@@ -1,5 +1,51 @@
+.account-details {
+    padding-bottom: 300px;
+    color: white;
+    background-color: #282c34;
+    height: 100vh;
+}
 
-@media only screen and (min-width: 1000px){
+.accounts-by-type {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.specific-accounts {
+    border: 2px solid white;
+    position: relative;
+    display: flex;
+    padding: 25px 10px;
+}
+
+.individual-accounts {
+    margin: 20px 10px;
+    padding: 10px 15px;
+    background-color: rgb(90, 90, 90);
+    border-radius: 10px;
+}
+
+.individual-accounts h3 {
+    margin-bottom: 10px;
+}
+
+.account-name {
+    margin-right: 20px;
+    font-size: 14px;
+}
+
+.account-amount {
+    font-size: 12px;
+    position: absolute;
+    right: 45%;
+}
+
+.account-notes {
+    position: absolute;
+    right: 5%;
+}
+
+@media only screen and (min-width: 600px){
     .account-details {
         /* border: 4px solid blue; */
         padding: 25px;
@@ -34,6 +80,48 @@
     .account-amount {
         margin-right: 20px;
         font-size: 15px;
+    }
+}
+
+@media only screen and (min-width: 1000px){
+    .account-details {
+        padding: 25px;
+        color: white;
+        background-color: #282c34;
+    }
+
+    .accounts-by-type {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .specific-accounts {
+        border: 2px solid white;
+        margin: 20px 0px;
+        display: flex;
+        padding: 25px 20px;
+    }
+
+    .individual-accounts {
+        margin: 25px;
+        padding: 10px 25px;
+        border-radius: 10px;
+    }
+
+    .account-name {
+        margin-right: 20px;
+        position: relative;
+    }
+
+    .account-amount {
+        margin-right: 20px;
+        font-size: 15px;
+        position: relative;
+        right: 0;
+    }
+
+    .account-notes {
+        position: relative;
     }
   
 }

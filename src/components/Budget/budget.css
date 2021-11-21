@@ -12,14 +12,16 @@
     .budgets {
         color: white;
         border: 2px solid white;
-        padding: 25px 45px;
+        padding: 25px 5px;
     }
 
     .budget-headers {
         display: flex;
-        justify-content: space-around;
+        /* justify-content: space-around; */
         padding: 10px 0px;
         color: gray;
+        /* border: 2px solid yellow; */
+        /* width: 100%; */
     }
 
     .budget-headers h4 {

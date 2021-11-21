@@ -24,7 +24,7 @@ const Signup = () => {
     
     return (
         <section className='authentication'>
-        <h1>Authentication 2</h1>
+        <h1>Register for Balance App</h1>
 
         <section className='signin'>
 
