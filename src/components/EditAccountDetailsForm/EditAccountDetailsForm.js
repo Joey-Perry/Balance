@@ -8,7 +8,7 @@ const EditAccountDetailsForm = ({toggleForm, account, page, setValues }) => {
     const [ selectedType, setSelectedType ] = useState(account.type);
     
     // console.log(category);
-    // console.log(page);
+    console.log(page);
     
     const info = (e) => {
         e.preventDefault();
