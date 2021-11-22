@@ -35,7 +35,7 @@ const AccountDetails = (props) => {
         <section className='accounts-by-type'>
             <section className='individual-accounts'>
             <h3>Checking</h3>
-            {accounts.filter(account => account.type.toLowerCase() === 'checking').map(account => {
+            {accounts.filter(account => account.type.toLowerCase() === 'checking').sort((a, b) => a.id - b.id).map(account => {
                 return (
                     <div onClick={() => openEditForm(account)} key={account.id} className='specific-accounts'>
                     <h4 className='account-name'>{account.name}</h4>
@@ -48,7 +48,7 @@ const AccountDetails = (props) => {
 
             <section className='individual-accounts'>
             <h3>Saving</h3>
-            {accounts.filter(account => account.type.toLowerCase() === 'savings').map(account => {
+            {accounts.filter(account => account.type.toLowerCase() === 'savings').sort((a, b) => a.id - b.id).map(account => {
                 return (
                     <div onClick={() => openEditForm(account)} key={account.id} className='specific-accounts'>
                     <h4 className='account-name'>{account.name}</h4>
@@ -62,7 +62,7 @@ const AccountDetails = (props) => {
 
             <section className='individual-accounts'>
             <h3>Debt</h3>
-            {accounts.filter(account => account.type.toLowerCase() === 'debt').map(account => {
+            {accounts.filter(account => account.type.toLowerCase() === 'debt').sort((a, b) => a.id - b.id).map(account => {
                 return (
                     <div onClick={() => openEditForm(account)} key={account.id} className='specific-accounts'>
                     <h4 className='account-name'>{account.name}</h4>

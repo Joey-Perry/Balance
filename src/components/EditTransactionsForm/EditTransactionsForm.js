@@ -28,7 +28,7 @@ const EditTransactionsForm = ({toggleForm, category, page, setValues }) => {
     const deleteThis = () => {
         // console.log(values);
 
-        axios.delete(`/api/${page}/${values.id}`)
+        axios.delete(`/api${page}/${values.id}`)
             .then(res => {
                 toggleForm();
                 setValues(res.data);

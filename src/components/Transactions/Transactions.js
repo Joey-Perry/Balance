@@ -35,7 +35,7 @@ const Transactions = (props) => {
         <h1>Transactions</h1>
 
         <section className='transactions-container'>
-        {transactions.map(transaction => {
+        {transactions.sort((a, b) => a.id - b.id).map(transaction => {
             
             return (
                 <section className='transactions' key={transaction.id} onClick={(e) => openEditForm(e, transaction.id)}>

@@ -16,7 +16,7 @@ const Form = ({toggleForm, fields, page, setValues }) => {
             alert('Please select a Category!');
         } else {
             console.log(page);
-            axios.post(`/api/${page}`, values)
+            axios.post(`/api${page}`, values)
                 .then(res => {
                     console.log(res.data);
                     toggleForm();
