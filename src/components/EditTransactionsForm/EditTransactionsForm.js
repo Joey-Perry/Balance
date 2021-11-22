@@ -16,7 +16,7 @@ const EditTransactionsForm = ({toggleForm, category, page, setValues }) => {
 
         // console.log(values);
 
-        axios.put(`/api/${page}`, values)
+        axios.put(`/api${page}`, values)
             .then(res => {
                 console.log(res.data)
                 toggleForm();
