@@ -40,7 +40,8 @@
       .nav-bar {
           position: relative;
           border: none;
-          justify-content: flex-start;
+          padding-left: 50px;
+          /* justify-content: flex-start; */
       }
 
   }

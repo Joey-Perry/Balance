@@ -1,5 +1,6 @@
 .transactions-overview {
     height: 100vh;
+    color: white;
 }
 
 .transactions-container {
@@ -20,6 +21,7 @@
 
 .category {
     padding: 15px 0px 15px 40px;
+    color: springgreen;
 }
 
 .amount {
@@ -39,11 +41,10 @@
 
 @media only screen and (min-width: 1000px){
     .transactions-overview {
-        border: 2px solid white;
+        /* border: 2px solid white; */
         margin-right: 350px;
         padding: 0px 35px;
         width: 700px;
-        color: white;
     }
 
     .transactions-container {

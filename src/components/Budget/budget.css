@@ -11,7 +11,7 @@
 
     .budgets {
         color: white;
-        border: 2px solid white;
+        /* border: 2px solid white; */
         padding: 25px 5px;
         height: 100vh;
     }
@@ -64,7 +64,7 @@
 
     .budgets {
         color: white;
-        border: 2px solid white;
+        /* border: 2px solid white; */
         padding: 25px 45px;
         margin-right: 550px;
     }
