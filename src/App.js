@@ -27,10 +27,10 @@ const App = (props) => {
       {!loggedInStatus && authRoutes }
 
       {loggedInStatus && 
-        <>
-        <main className='main'>{routes}</main>
+        <div className='app-main'>
         <Nav />
-        </>
+        <main className='main'>{routes}</main>
+        </div>
       }
     </div>
   )

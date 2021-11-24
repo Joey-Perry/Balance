@@ -1,3 +1,7 @@
+.transactions-overview {
+    height: 100vh;
+}
+
 .transactions-container {
     display: flex;
     flex-direction: column;

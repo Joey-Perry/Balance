@@ -1,9 +1,10 @@
 .App {
   /* border: 2px solid black; */
-  border: 3px solid white;
-  display: flex;
-  flex-direction: column;
+  /* border: 3px solid white; */
+  /* display: flex; */
+  /* flex-direction: column; */
   background-color: rgb(43, 43, 43);
+  height: 100vh;
 }
 
 .App-logo {
@@ -42,15 +43,15 @@
 }
 
 @media only screen and (min-width: 600px){
-  .App {
-    height: 100vh;
-  }
+
 
 }
 
 @media only screen and (min-width: 1000px){
-  .App {
-    flex-direction: row-reverse;
+
+  .app-main {
+    border: 2px solid green;
+    display: flex;
     height: 100vh;
   }
 

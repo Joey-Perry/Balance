@@ -66,7 +66,7 @@ const register = async (req, res) => {
                 firstName: user.first_name,
                 lastName: user.last_name,
                 username: user.username,
-                email: user.email
+                email: user.email,
             }
 
             let transporter = nodemailer.createTransport({

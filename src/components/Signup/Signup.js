@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { loginUser } from '../../redux/authReducer';
 import './signup.css';
 
-const Signup = () => {
+const Signup = (props) => {
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -18,7 +20,12 @@ const Signup = () => {
         }
         
         axios.post('/auth/register', userInfo )
-            .then(res => console.log(res.data))
+            .then(res => {
+                console.log(res.data);
+                const newUsername = res.data.username;
+                const loginInfo = { newUsername, password };
+                props.loginUser(loginInfo);
+            })
             .catch(err => console.log(err))
     }
     
@@ -52,7 +59,7 @@ const Signup = () => {
 
         <section className='login password'>
         <h5>Password</h5>
-        <input value={password} onChange={(e) => setPassword(e.target.value)}/>
+        <input value={password} type='password' onChange={(e) => setPassword(e.target.value)}/>
         </section>
 
         <button className='btn' onClick={register}> Create my account </button>
@@ -67,4 +74,12 @@ const Signup = () => {
     )
 }
 
-export default Signup;
+const mapStateToProps = (reduxState) => {
+    return {
+        state: reduxState.state
+    }
+}
+
+const mapDispatchToProps = { loginUser }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);

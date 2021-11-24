@@ -1,11 +1,13 @@
 .authentication {
-    align-self: center;
+    /* align-self: center; */
     color: white;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .signin {
     padding: 30px;
+    border-radius: 10px;
+    background-color: rgb(90, 90, 90);
 }
 
 
@@ -49,8 +51,8 @@
 
     .authentication {
         align-self: center;
-        margin-right: 30%;
-        padding: 0px 100px;
+        margin: 0 20% 0 20%;
+        padding: 100px;
         color: white;
     }
 

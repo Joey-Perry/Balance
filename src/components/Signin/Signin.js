@@ -29,7 +29,7 @@ const Signin = (props) => {
             </section>
 
             <section className='login password'>
-                <input value={password} onChange={(e) => setPassword(e.target.value)}/>
+                <input value={password} type='password' onChange={(e) => setPassword(e.target.value)}/>
             </section>
 
             <button className='btn' onClick={login}> Sign In </button>
