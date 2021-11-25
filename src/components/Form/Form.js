@@ -15,7 +15,7 @@ const Form = ({toggleForm, fields, page, setValues }) => {
         if (values.category === 'Select One'){
             alert('Please select a Category!');
         } else {
-            console.log(page);
+            // console.log(page);
             axios.post(`/api${page}`, values)
                 .then(res => {
                     console.log(res.data);
@@ -50,7 +50,7 @@ const Form = ({toggleForm, fields, page, setValues }) => {
 
     return (
         <>
-        <form className='form'>
+        <form className='form' noValidate>
             {fields.map((field, i) => {
 
                 if (field === 'category'){
@@ -88,6 +88,7 @@ const Form = ({toggleForm, fields, page, setValues }) => {
                         <input value={values.field}
                             name={field}
                             onChange={handleChange}
+                            required
                             />
                     </div>
                 )
