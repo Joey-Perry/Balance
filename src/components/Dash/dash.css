@@ -1,5 +1,8 @@
 .dash {
     text-align: center;
+    background-color: #282c34;
+    padding-bottom: 100px;
+    /* height: 500px; */
 }
 
 .overview {
@@ -88,7 +91,6 @@
         /* border: 2px solid black; */
         display: flex;
         flex-direction: column;
-        background-color: #282c34;
         padding-bottom: 45px;
         
     }  
