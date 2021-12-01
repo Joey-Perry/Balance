@@ -1,11 +1,14 @@
 .signin {
     padding: 30px;
 }
-
+.authentication h1 {
+    margin-bottom: 25px;
+}
 
 .login {
     display: flex;
-    margin: 10px 0px;
+    flex-direction: column;
+    margin: 50px 0px;
 }
 
 .login h5 {
@@ -37,7 +40,8 @@
 }
 
 @media only screen and (min-width: 1000px){
-    .login h5 {
-        font-size: 20px;
+
+    .authentication {
+
     }
 }

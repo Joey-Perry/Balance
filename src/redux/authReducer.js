@@ -42,7 +42,7 @@ export default function reducer(state=initialState, action){
         }
 
         case `${LOGGED_IN}_FULFILLED`: {
-            // console.log(action.payload);
+            console.log(action.payload);
             return {
                 ...state,
                 loggedIn: true,

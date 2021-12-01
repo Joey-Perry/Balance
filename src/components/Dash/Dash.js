@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import Chart from '../Chart/Chart';
+import { connect } from 'react-redux';
 import './dash.css';
 
 const Dash = (props) => {
@@ -40,9 +41,10 @@ const Dash = (props) => {
     }, [networth]);
 
     return (
+
         <section className='dash'>
 
-        <h1 className='overview'>DASHBOARD</h1>
+        <h1 className='overview'>{props.state.firstName.toUpperCase()}'S DASHBOARD</h1>
 
         <section className='top-of-dash'>
             <section className='account networth-section'>
@@ -75,4 +77,13 @@ const Dash = (props) => {
     )
 }
 
-export default Dash;
+const mapStateToProps = (reduxState) => {
+
+    console.log(reduxState);
+
+    return {
+      state: reduxState
+    }
+  }
+
+export default connect(mapStateToProps)(Dash);

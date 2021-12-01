@@ -4,6 +4,10 @@
     /* height: 100vh; */
 }
 
+.authentication h1 {
+    /* margin-bottom: 50px; */
+}
+
 .signin {
     padding: 30px;
     border-radius: 10px;

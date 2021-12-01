@@ -2,18 +2,28 @@
     list-style: none;
 }
 
-.menu {
+/* .menu {
     border: 2px solid white;
     background-color: black;
     color: white;
     padding: 50px 20px;
     margin-right: 100px;
     font-size: 14px;
-    z-index: -99;
-}
+} */
 
 .menu h2 {
     margin-bottom: 13px;
+}
+
+@media only screen and (max-width: 600px){
+    .menu {
+    border: 2px solid white;
+    background-color: black;
+    color: white;
+    padding: 50px 20px;
+    margin-right: 100px;
+    font-size: 14px;
+    }
 }
 
 
@@ -58,5 +68,9 @@
     .log-out:hover {
         cursor: pointer;
         color: yellow;
+    }
+
+    .menu {
+
     }
 }
