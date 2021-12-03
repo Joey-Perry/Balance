@@ -89,6 +89,12 @@
         margin-top: 25px;
     }
 
+    .btn:hover {
+        cursor: pointer;
+        background-color: black;
+        color: white;
+    }
+
     .register {
         text-align: center;
         margin-bottom: 100px;
