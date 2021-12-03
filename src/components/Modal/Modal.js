@@ -4,7 +4,9 @@ import './modal.css';
 const Modal = ({ children }) => {
     return (
         <div className='modal'>
-            {children}
+            <div className='modal-content'>
+                {children}
+            </div>
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import useForm from '../../utils/useForm';
-import './editAccountDetailsForm.css';
+import '../EditForm/editForm.css';
 
 const EditAccountDetailsForm = ({toggleForm, account, page, setValues }) => {
     const [ values, handleChange ] = useForm(account);

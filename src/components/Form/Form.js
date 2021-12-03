@@ -94,9 +94,9 @@ const Form = ({toggleForm, fields, page, setValues }) => {
                 )
             })}
 
-            <button onClick={info}>SUBMIT</button>
+            <button className='form-btn' onClick={info}>SUBMIT</button>
         </form>
-        <button onClick={toggleForm}>CLOSE</button>
+        <button className='form-btn' onClick={toggleForm}>CLOSE</button>
         </>
     )
 }

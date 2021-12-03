@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import useForm from '../../utils/useForm';
-import './editTransactionsForm.css';
+import '../EditForm/editForm.css';
 
 const EditTransactionsForm = ({toggleForm, category, page, setValues }) => {
     const [ values, handleChange ] = useForm(category[0]);
@@ -87,11 +87,11 @@ const EditTransactionsForm = ({toggleForm, category, page, setValues }) => {
                     name='date'
                     onChange={handleChange} />
 
-                <button onClick={info}>SUBMIT</button>
+                <button className='form-btn' onClick={info}>SUBMIT</button>
             </form>
 
-            <button onClick={deleteThis}>DELETE</button>
-            <button onClick={toggleForm}>CLOSE</button>
+            <button className='form-btn' onClick={deleteThis}>DELETE</button>
+            <button className='form-btn' onClick={toggleForm}>CLOSE</button>
         </>
     )
 

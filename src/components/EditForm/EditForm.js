@@ -54,11 +54,11 @@ const EditForm = ({toggleForm, category, page, setValues }) => {
                     name='date'
                     onChange={handleChange} />
 
-                <button onClick={info}>SUBMIT</button>
+                <button className='form-btn' onClick={info}>SUBMIT</button>
             </form>
 
-            <button onClick={deleteThis}>DELETE</button>
-            <button onClick={toggleForm}>CLOSE</button>
+            <button className='form-btn' onClick={deleteThis}>DELETE</button>
+            <button className='form-btn' onClick={toggleForm}>CLOSE</button>
         </>
     )
 
