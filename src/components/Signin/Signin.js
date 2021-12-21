@@ -17,7 +17,7 @@ const Signin = (props) => {
     }
 
     const demoLogin = () => {
-        const username = 'Demo Account';
+        const username = 'Demo';
         const password = '1234';
         const loginInfo = { username, password }
         props.loginUser(loginInfo);

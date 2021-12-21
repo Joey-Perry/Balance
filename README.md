@@ -1,6 +1,6 @@
 ## How I worked on this project
 My goal was to simulate a professional work environment.
-- I built this app based on Figma designs: 
+- I built this app based on Every Dollar designs: 
 
 ![dribbble design inspiration](https://github.com/Joey-Perry/Balance/blob/main/budget_design.jpeg)
 
