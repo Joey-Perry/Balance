@@ -1,8 +1,8 @@
 ## How I worked on this project
 My goal was to simulate a professional work environment.
 - I built this app based on Figma designs: [Screenshot of designs]
-- I worked with tasks on a Trello board: [Screenshot of tasks]
-- I used feature branches and Pull Requests: [Link to example PR]
+- I worked with tasks on a Trello board: ![trello board screenshot]
+- I used feature branches and Pull Requests: https://github.com/Joey-Perry/Balance/pull/14
 
 ## How to navigate this project
 - Somewhat complex stateful logic: [Link to example code on GitHub]
