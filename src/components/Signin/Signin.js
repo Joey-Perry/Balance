@@ -16,6 +16,13 @@ const Signin = (props) => {
         props.loginUser(loginInfo);
     }
 
+    const demoLogin = () => {
+        const username = 'Demo Account';
+        const password = '1234';
+        const loginInfo = { username, password }
+        props.loginUser(loginInfo);
+    }
+
     return (
         <section className='authentication'>
         <h1>Balance App</h1>
@@ -33,6 +40,7 @@ const Signin = (props) => {
             </section>
 
             <button className='btn' onClick={login}> Sign In </button>
+            <button className='btn' onClick={demoLogin}> DEMO </button>
 
         </section>
 
