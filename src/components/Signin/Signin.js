@@ -39,7 +39,7 @@ const Signin = (props) => {
                 <input value={password} type='password' onChange={(e) => setPassword(e.target.value)}/>
             </section>
 
-            <button className='btn' onClick={login}> Sign In </button>
+            {/* <button className='btn' onClick={login}> Sign In </button> */}
             <button className='btn' onClick={demoLogin}> DEMO </button>
 
         </section>
